@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改</title>
+    <style>
+        .center {
+            text-align: center;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table {
+            width: 20%;
+            margin: auto;
+            scale: 1.2;
+        }
+
+        input[type="file"] {
+            margin-left: 105px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="center">修改</h1>
+    <div class="container">
+        <form action="" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <label for="Name">&nbsp;Name</label>
+                        <input type="text" name="name" id="name" value="Lily">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Mobile">&nbsp;Mobile</label>
+                        <input type="text" name="Mobile" id="Mobile" value="0911-111-111">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" name="File" id="File">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" id="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>
