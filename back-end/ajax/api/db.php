@@ -4,7 +4,7 @@ session_start();
 class DB{
 
     protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120419";
-    //protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz";
+    //protected $dsn = "mysql:host=localhost;charset=utf8;dbname=php_school";
     protected $pdo;
     protected $table;
     
@@ -14,7 +14,6 @@ class DB{
         $this->pdo=new PDO($this->dsn,'s1120419','s1120419');
         // $this->pdo=new PDO($this->dsn,'root','');
     }
-
 
     function all( $where = '', $other = '')
     {
@@ -99,7 +98,6 @@ class DB{
      */
     function q($sql){
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     private function a2s($array){
@@ -129,7 +127,6 @@ class DB{
             return $sql;
         } 
     }
-
 }
 
 function dd($array)
