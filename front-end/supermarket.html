@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Shop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+  * {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+  }
+
+  table,
+  thead,
+  tr,
+  th,
+  td {
+    border: 1px black solid;
+  }
+
+  th {
+    background-color: rgb(138, 235, 157);
+  }
+
+  td {
+    width: 15vw;
+  }
+
+  table:hover {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  header {
+    text-align: center;
+    align-items: center;
+  }
+
+  h1 {
+    width: 70vw;
+    position: relative;
+    /* 調整此值以微調位置 */
+    text-align: center;
+    color: rgba(138, 235, 157);
+    font-style: italic;
+    scale: 1.7;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0);
+  }
+
+  h1:hover {
+    color: rgb(123, 242, 4);
+    font-style: italic;
+    scale: 1.7;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0);
+  }
+
+  h3 {
+    position: relative;
+    right: 290px;
+    /* 調整此值以微調位置 */
+    text-align: right;
+    /* 如果需要右對齊文字 */
+  }
+
+  h3:hover {
+    text-shadow: 1px 1px 0px #190b0b;
+    font-style: italic;
+    color: #ff0000;
+  }
+</style>
+
+<body>
+  <header>
+    <h1 style="font-family: fantasy;margin: 0;margin-top: 30px;margin-bottom: 10px;">TaiShan Supermarket</h1>
+    <h3 style="font-family: fantasy;margin: 0;margin-bottom: 5px;">滿 5000 結帳自動打 8 折</h3>
+  </header>
+
+  <div class="container">
+    <table style="width: 70vw;">
+      <thead>
+        <tr>
+          <th>產品</th>
+          <th>價格</th>
+          <th>數量</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>
+          福袋1
+          <br>
+          <img src="https://picsum.photos/id/952/115/115" alt="" style="margin-bottom:5px;">
+        </td>
+        <td>
+          <input type="number" name="" id="item1Price" class="form-control" value="100"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item1Number" class="form-control" value="1"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item1Total" class="form-control" value="100"
+            style="width: 240px;margin: auto;">
+        </td>
+      </tbody>
+      <tbody>
+        <td>
+          福袋2
+          <br>
+          <img src="https://picsum.photos/id/403/115/115" alt="" style="margin-bottom:5px;">
+        </td>
+        <td>
+          <input type="number" name="" id="item2Price" class="form-control" value="150"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item2Number" class="form-control" value="1"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item2Total" class="form-control" value="150"
+            style="width: 240px;margin: auto;">
+        </td>
+      </tbody>
+      <tbody>
+        <td>
+          福袋3
+          <br>
+          <img src="https://picsum.photos/id/739/115/115" alt="" style="margin-bottom:5px;">
+        </td>
+        <td>
+          <input type="number" name="" id="item3Price" class="form-control" value="200"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item3Number" class="form-control" value="1"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item3Total" class="form-control" value="200"
+            style="width: 240px;margin: auto;">
+        </td>
+      </tbody>
+      <tbody>
+        <td>
+          福袋4
+          <br>
+          <img src="https://picsum.photos/id/345/115/115" alt="" style="margin-bottom:5px;">
+        </td>
+        <td>
+          <input type="number" name="" id="item4Price" class="form-control" value="50"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item4Number" class="form-control" value="1"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item4Total" class="form-control" value="50"
+            style="width: 240px;margin: auto;">
+        </td>
+      </tbody>
+      <tbody>
+        <td>
+          福袋5
+          <br>
+          <img src="https://picsum.photos/id/355/115/115" alt="" style="margin-bottom:5px;">
+        </td>
+        <td>
+          <input type="number" name="" id="item5Price" class="form-control" value="500"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item5Number" class="form-control" value="1"
+            style="width: 240px;margin: auto;">
+        </td>
+        <td>
+          <input type="number" name="" id="item5Total" class="form-control" value="500"
+            style="width: 240px;margin: auto;">
+        </td>
+      </tbody>
+      <tbody>
+        <td>
+          <p style="margin: auto;font-weight: bolder;">總計</p>
+        </td>
+        <td colspan="2">
+          <span id="resultSpan"></span>
+        </td>
+        <td>
+          <button class="btn btn-primary" type="button" id="myBtn">總計</button>
+        </td>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function item1Fun() {
+      let getItem1Price = Number(item1Price.value);
+      let getItem1Number = Number(item1Number.value);
+      let resultItem1Total = getItem1Price * getItem1Number;
+      item1Total.value = resultItem1Total;
+    }
+
+    function item2Fun() {
+      let getItem2Price = Number(item2Price.value);
+      let getItem2Number = Number(item2Number.value);
+      let resultItem2Total = getItem2Price * getItem2Number;
+      item2Total.value = resultItem2Total;
+    }
+
+    function item3Fun() {
+      let getItem3Price = Number(item3Price.value);
+      let getItem3Number = Number(item3Number.value);
+      let resultItem3Total = getItem3Price * getItem3Number;
+      item3Total.value = resultItem3Total;
+    }
+
+    function item4Fun() {
+      let getItem4Price = Number(item4Price.value);
+      let getItem4Number = Number(item4Number.value);
+      let resultItem4Total = getItem4Price * getItem4Number;
+      item4Total.value = resultItem4Total;
+    }
+
+    function item5Fun() {
+      let getItem5Price = Number(item5Price.value);
+      let getItem5Number = Number(item5Number.value);
+      let resultItem5Total = getItem5Price * getItem5Number;
+      item5Total.value = resultItem5Total;
+    }
+
+    const item1Price = document.getElementById('item1Price');
+    const item1Number = document.getElementById('item1Number');
+    const item1Total = document.getElementById('item1Total');
+    const item2Price = document.getElementById('item2Price');
+    const item2Number = document.getElementById('item2Number');
+    const item2Total = document.getElementById('item2Total');
+    const item3Price = document.getElementById('item3Price');
+    const item3Number = document.getElementById('item3Number');
+    const item3Total = document.getElementById('item3Total');
+    const item4Price = document.getElementById('item4Price');
+    const item4Number = document.getElementById('item4Number');
+    const item4Total = document.getElementById('item4Total');
+    const item5Price = document.getElementById('item5Price');
+    const item5Number = document.getElementById('item5Number');
+    const item5Total = document.getElementById('item5Total');
+
+    // item1
+    item1Price.addEventListener('change', function () {
+      item1Fun();
+    });
+
+    item1Number.addEventListener('change', function () {
+      item1Fun();
+    });
+
+    // item2
+    item2Price.addEventListener('change', function () {
+      item2Fun();
+    });
+
+    item2Number.addEventListener('change', function () {
+      item2Fun();
+    });
+
+    // item3
+    item3Price.addEventListener('change', function () {
+      item3Fun();
+    });
+
+    item3Number.addEventListener('change', function () {
+      item3Fun();
+    });
+
+    // item4
+    item4Price.addEventListener('change', function () {
+      item4Fun();
+    });
+
+    item4Number.addEventListener('change', function () {
+      item4Fun();
+    });
+
+    // item5
+    item5Price.addEventListener('change', function () {
+      item5Fun();
+    });
+
+    item5Number.addEventListener('change', function () {
+      item5Fun();
+    });
+
+    // myBtn
+    myBtn.addEventListener('click', function () {
+      let getItem1Total = Number(item1Total.value);
+      let getItem2Total = Number(item2Total.value);
+      let getItem3Total = Number(item3Total.value);
+      let getItem4Total = Number(item4Total.value);
+      let getItem5Total = Number(item5Total.value);
+      let sum = getItem1Total + getItem2Total + getItem3Total + getItem4Total + getItem5Total;
+      if (sum > 5000) {  // 滿5000打8折
+        sum = sum * 0.8;
+      }
+      console.log('sum', sum);
+      resultSpan.innerText = sum;
+    })
+
+  </script>
+</body>
+
+</html>
