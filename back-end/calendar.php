@@ -19,7 +19,7 @@
         }
 
         body {
-            background-image: url('January.jpg');
+            background-image: url('../imgs/January.jpg');
             background-size: auto;
         }
 
@@ -73,16 +73,13 @@
 
         .navbar a:hover {
             text-decoration: none;
-            /* background-color: lemonchiffon; */
             color: rgb(285, 155, 155);
             transform: scale(1.5);
         }
 
         .navbar2 a:hover {
             text-decoration: none;
-            /* background-color: lemonchiffon; */
             color: rgb(285, 155, 155);
-            /* transform: scale(1.5); */
         }
 
         table {
@@ -198,23 +195,23 @@
 
         <?php
         $monthImages = array(
-            "January.jpg",
-            "February.jpg",
-            "March.jpg",
-            "April.jpg",
-            "May.jpg",
-            "June.jpg",
-            "July.jpg",
-            "August.jpg",
-            "September.jpg",
-            "October.jpg",
-            "November.jpg",
-            "December.jpg"
+            "../imgs/January.jpg",
+            "../imgs/February.jpg",
+            "../imgs/March.jpg",
+            "../imgs/April.jpg",
+            "../imgs/May.jpg",
+            "../imgs/June.jpg",
+            "../imgs/July.jpg",
+            "../imgs/August.jpg",
+            "../imgs/September.jpg",
+            "../imgs/October.jpg",
+            "../imgs/November.jpg",
+            "../imgs/December.jpg"
         );
 
         $backgroundImage = $monthImages[$month - 1];
         // 根據月份選擇背景圖片
-        
+
         echo "<style>";
         echo "body { background-image: url('$backgroundImage'); background-size: cover; }";
         echo "</style>";
