@@ -1,3 +1,7 @@
+<?php
+include_once "./api/db.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iShop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/js.js"></script>
+    <script src="./js/jquery-1.9.1.min.js"></script>
     <style>
         body {
             font-family: fantasy;
@@ -21,11 +27,26 @@
         .card:hover {
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
+        .back-to-top {
+            background: #222;
+            color: #fff;
+            z-index: 1100;
+            right: 30px;
+            bottom: 80px;
+            padding: 15 15px;
+            width: 40px;
+            font-size: 25px;
+            position: fixed;
+            cursor: pointer;
+            text-align: center;
+            opacity: 0.4;
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><i class="fa-solid fa-camera-retro"></i>&nbsp;iShot</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,17 +68,17 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            iDropdown
+                            iMember
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#bottom">iSales and Refunds</a></li>
-                            <li><a class="dropdown-item" href="#bottom">iPrivacy Policy</a></li>
+                            <li><a class="dropdown-item" href="#bottom">iVote</a></li>
                             <li><a class="dropdown-item" href="#bottom">iLegal</a></li>
                             <li><a class="dropdown-item" href="#bottom">iUse of Cookies</a></li>
                         </ul>
                     </li>
                 </ul>
-                <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iMember</a>
+                <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a>
             </div>
         </div>
     </nav>
@@ -77,8 +98,11 @@
                     <input type="password" name="pw" id="pw" class="form-control">
                 </div>
                 <div class="btn-custom">
-                    <button type="submit" class="btn btn-primary">登入</button>
-                    <button type="button" class="btn btn-danger">離開</button>
+                    <button type="submit" class="btn btn-primary" value="登入" onclick="login()">登入</button>
+                    <button type="button" class="btn btn-danger" value="離開">離開</button>
+                </div>
+                <div class="mt-1">
+                    <a href="?do=forget">忘記密碼?</a>
                 </div>
             </div>
         </div>
@@ -189,9 +213,9 @@
             <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 攝影座右銘
             </a>
-            <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+            <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
                 點開發現新視界
-            </button>
+            </a>
         </p>
         <div class="row" style="text-align: center">
             <div class="col-8">
@@ -234,6 +258,62 @@
             </div>
         </div>
     </div>
+    <div class="container mt-3">
+        <div class="container">
+            <p style="font-size: xx-large">聯絡我</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="d-flex mt-3 mb-3">
+                        <i class="fa-solid fa-location-dot" style="font-size:larger;"> Location：
+                            <br>
+                            <p class="mt-3">大台北地區</p>
+                        </i>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="fa-solid fa-mobile-screen-button" style="font-size:larger;"> Phone：
+                            <br>
+                            <p class="mt-3">0932-805-756</p>
+                        </i>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="fa-solid fa-envelope" style="font-size:larger;"> Email：
+                            <br>
+                            <p class="mt-3">955khm@gmail.com</p>
+                        </i>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-8">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                            <button type="button" class="btn btn-outline-dark myContactBtn mt-1">送出</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 mt-3">
+                    <img src="../img/avatar.png" style="width: 150px;height: 200px;">
+                </div>
+            </div>
+            <div class="back-to-top" onclick="scrollToTop()">
+                <i class="fa-solid fa-circle-up"></i>
+            </div>
+        </div>
+    </div>
     <hr>
     <div class="container mt-3" id="bottom">
         <div class="dropdown" style="text-align: center;">
@@ -249,19 +329,20 @@
             <a class="btn btn-outline-dark dropdown-toggle fst-italic" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 iUse of Cookies
             </a>
-
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">iAction</a></li>
-                <li><a class="dropdown-item" href="">iAnother action</a></li>
-                <li><a class="dropdown-item" href="">iSomethingelse</a></li>
-            </ul>
         </div>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="">iAction</a></li>
+            <li><a class="dropdown-item" href="">iAnother action</a></li>
+            <li><a class="dropdown-item" href="">iSomethingelse</a></li>
+        </ul>
     </div>
     </div>
+
     <p class="mb-3"></p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
+        // 海外婚紗促銷js
         $(document).ready(function() {
             // 綁定
             const myBtn = $('.myBtn');
@@ -298,8 +379,15 @@
                 nowMyBox.show();
                 nowMySpan.text(`優惠價 ${result} 元`)
             });
-
         });
+
+        // 加上 JavaScript 函式 scrollToTop() 來執行回到頂部的動作
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 讓滾動有平滑的動畫效果
+            });
+        }
     </script>
 
 </body>
