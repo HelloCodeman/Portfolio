@@ -234,10 +234,10 @@ include_once "./api/db.php"
     <div class="container-fluid">
         <div class="d-flex">
             <div class="col item">
-                <img src="../img/house.jpg" style="width: 100%;height: 600px;">
+                <img src="./img/house.jpg" style="width: 100%;height: 600px;">
             </div>
             <div class="col item">
-                <img src="../img/view.jpg" style="width: 100%;height: 600px;">
+                <img src="./img/view.jpg" style="width: 100%;height: 600px;">
             </div>
         </div>
         <div class="container-date" id="carousel">
@@ -305,8 +305,27 @@ include_once "./api/db.php"
                         </div>
                     </div>
                 </div>
-                <div class="col-2 mt-3">
-                    <img src="../img/avatar.png" style="width: 150px;height: 200px;">
+                <div class="col-2 mt-1">
+                    <div style="text-align: center;">
+                        <img src="./img/avatar.png" style="width: 150px;height: 200px;">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://github.com/he11owor1dtw">
+                                <i class="fa-brands fa-github" style="font-size:30px"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.instagram.com/he11owor1d_/">
+                                <i class="fa-brands fa-instagram" style="font-size:32px"></i>
+                            </a>
+                        </div>
+                        <div class="col"><a href="https://pda.104.com.tw/profile/edit?vno=74rk3wa0w">
+                                <i class="fa-solid fa-user" style="font-size:27px"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="back-to-top" onclick="scrollToTop()">
