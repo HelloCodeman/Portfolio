@@ -19,7 +19,7 @@
         }
 
         body {
-            background-image: url('../imgs/January.jpg');
+            background-image: url('../img/January.jpg');
             background-size: auto;
         }
 
@@ -195,18 +195,18 @@
 
         <?php
         $monthImages = array(
-            "../imgs/January.jpg",
-            "../imgs/February.jpg",
-            "../imgs/March.jpg",
-            "../imgs/April.jpg",
-            "../imgs/May.jpg",
-            "../imgs/June.jpg",
-            "../imgs/July.jpg",
-            "../imgs/August.jpg",
-            "../imgs/September.jpg",
-            "../imgs/October.jpg",
-            "../imgs/November.jpg",
-            "../imgs/December.jpg"
+            "../img/January.jpg",
+            "../img/February.jpg",
+            "../img/March.jpg",
+            "../img/April.jpg",
+            "../img/May.jpg",
+            "../img/June.jpg",
+            "../img/July.jpg",
+            "../img/August.jpg",
+            "../img/September.jpg",
+            "../img/October.jpg",
+            "../img/November.jpg",
+            "../img/December.jpg"
         );
 
         $backgroundImage = $monthImages[$month - 1];
@@ -240,7 +240,7 @@
                 ?>
             </select>
             <input type="submit" value="顯示該月">
-            <a href="./index.php">&nbsp;回到今天</a>
+            <a href="./calendar.php">&nbsp;回到今天</a>
         </form>
     </div>
 
