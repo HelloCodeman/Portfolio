@@ -234,10 +234,10 @@ include_once "./api/db.php"
     <div class="container-fluid">
         <div class="d-flex">
             <div class="col item">
-                <img src="./img/house.jpg" style="width: 100%;height: 600px;">
+                <img src="../img/house.jpg" style="width: 100%;height: 600px;">
             </div>
             <div class="col item">
-                <img src="./img/view.jpg" style="width: 100%;height: 600px;">
+                <img src="../img/view.jpg" style="width: 100%;height: 600px;">
             </div>
         </div>
         <div class="container-date" id="carousel">
@@ -265,24 +265,18 @@ include_once "./api/db.php"
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                    <div class="d-flex mt-3 mb-3">
-                        <i class="fa-solid fa-location-dot" style="font-size:larger;"> Location：
-                            <br>
-                            <p class="mt-3">大台北地區</p>
-                        </i>
+                    <div class="d-flex mt-3">
+                        <i class="fa-solid fa-location-dot" style="font-size:larger;"> Location：</i>
                     </div>
-                    <div class="d-flex mb-3">
-                        <i class="fa-solid fa-mobile-screen-button" style="font-size:larger;"> Phone：
-                            <br>
-                            <p class="mt-3">0932-805-756</p>
-                        </i>
+                    <p class="mt-2" style="font-size:large;font-weight: bolder">大台北地區</p>
+                    <div class="d-flex">
+                        <i class="fa-solid fa-mobile-screen-button" style="font-size:larger;"> Phone：</i>
                     </div>
-                    <div class="d-flex mb-3">
-                        <i class="fa-solid fa-envelope" style="font-size:larger;"> Email：
-                            <br>
-                            <p class="mt-3">955khm@gmail.com</p>
-                        </i>
+                    <p class="mt-2">0932-805-756</p>
+                    <div class="d-flex">
+                        <i class="fa-solid fa-envelope" style="font-size:larger;"> Email：</i>
                     </div>
+                    <p class="mt-2">955khm@gmail.com</p>
                 </div>
                 <div class="col-6">
                     <div class="row">
@@ -307,7 +301,7 @@ include_once "./api/db.php"
                 </div>
                 <div class="col-2 mt-1">
                     <div style="text-align: center;">
-                        <img src="./img/avatar.png" style="width: 150px;height: 200px;">
+                        <img src="../img/avatar.png" style="width: 150px;height: 200px;">
                     </div>
                     <br>
                     <div class="row">
