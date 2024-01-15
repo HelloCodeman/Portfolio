@@ -4,16 +4,16 @@ session_start();
 class DB
 {
 
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120419";
-    // protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db19_2";
+    //protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120419";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db19_2";
     protected $pdo;
     protected $table;
 
     public function __construct($table)
     {
         $this->table = $table;
-        $this->pdo=new PDO($this->dsn,'s1120419','s1120419');
-        // $this->pdo = new PDO($this->dsn, 'root', '');
+        //$this->pdo=new PDO($this->dsn,'s1120419','s1120419');
+        $this->pdo = new PDO($this->dsn, 'root', '');
     }
 
     function all($where = '', $other = '')

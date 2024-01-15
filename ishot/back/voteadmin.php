@@ -1,5 +1,11 @@
 <?php
-include_once "../api/db.php"
+include_once "../api/db.php";
+
+if (!isset($_SESSION['user'])) {
+    // 如果未登入，將用戶重新導向到index.php
+    echo "<script>alert('請先登入'); window.location.href = '../index.php';</script>";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +31,7 @@ include_once "../api/db.php"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../index.php">
                 <i class="fa-solid fa-camera-retro"></i>
                 &nbsp;iShot
             </a>
@@ -33,14 +39,60 @@ include_once "../api/db.php"
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.php">iHome</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../front/mem.php">iMember</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../front/voteidx.php">iVote</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/mem.php">iMember</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/voteidx.php">iVote</a></li>
                     <li class="nav-item"><a class="nav-link" href="../back/admin.php">iAdmin</a></li>
                 </ul>
                 <!-- <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a> -->
             </div>
         </div>
     </nav>
+    <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5>會員登入</h5>
+        </div>
+        <div class="offcanvas-body">
+            <div class="container text-center">
+                <form action="./api/check.php" method="post">
+                    <div class="form-outline">
+                        <?php
+                        if (isset($_GET['error'])) {
+                            echo "<script>alert('帳號或密碼錯誤')</script>";
+                        }
+                        ?>
+                        <?php
+                        if (isset($_SESSION['user'])) {
+                            echo "歡迎光臨 " . $_SESSION['user'];
+                            echo "&nbsp;";
+                            echo "<br>";
+                            echo "<a href='../api/logout.php' class='btn btn-dark' style='font-size:15px'>登出</a>";
+                        ?>
+                        <?php
+                        } else {
+                        ?>
+                            <label for="account" class="form-label">帳號 Account</label>
+                            <input type="text" name="acc" id="acc" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="password" class="form-label">密碼 Password</label>
+                        <input type="password" name="pw" id="pw" class="form-control">
+                    </div>
+                    <div class="btn-custom">
+                        <button type="submit" class="btn btn-primary" value="登入">登入</button>
+                        <button type="button" class="btn btn-danger" value="離開">離開</button>
+                    </div>
+                </form>
+
+                <div class="mt-1">
+                    <a href="../front/forget.php">忘記密碼?</a>
+                </div>
+            <?php
+                        };
+            ?>
+            </div>
+        </div>
+    </div>
+    </div> -->
 
     <header class="p-3">
         <h1 class="text-center">投票主題管理</h1>
@@ -49,20 +101,20 @@ include_once "../api/db.php"
     <main class="container">
         <fieldset>
             <legend style="text-align: center;">
-                新增問卷
+                新增投票
             </legend>
-            <form action="./api/add_que.php" method="post">
+            <form action="../api/add_que.php" method="post">
                 <div class="d-flex">
                     <div class="mx-auto">
                         <!-- 主題 -->
                         <div class="col bg-light p-2">
-                            <label for="subject">主題名稱&nbsp;</label>
+                            <label for="subject">投票名稱&nbsp;</label>
                             <input type="text" name="subject" id="">
                         </div>
                         <!-- 選項 -->
                         <div class="col bg-light p-2">
-                            <label for="">主題選項&nbsp;</label>
-                            <input type="text" name="opt[]">
+                            <label for="option" id="opt">投票選項&nbsp;</label> <!-- 給定id以便function定位 -->
+                            <input type="text" name="option[]">
                             <input type="button" value="更多" onclick="more()">
                         </div>
                         <input type="submit" value="新增">
@@ -70,8 +122,6 @@ include_once "../api/db.php"
                     </div>
                 </div>
             </form>
-        <!-- </fieldset>
-        <fieldset> -->
             <hr>
             <legend style="text-align: center;">正在進行的投票</legend>
             <div class="col-8 mx-auto">
@@ -89,11 +139,11 @@ include_once "../api/db.php"
                             <td><?= $idx + 1; ?></td>
                             <td><?= $que['text']; ?></td>
                             <td>
-                                <a href="./api/show.php?id=<?= $que['id']; ?>" class="btn <?= ($que['display'] == 1) ? 'btn-info' : 'btn-secondary'; ?>">
+                                <!-- <a href="../api/show.php?id=<?= $que['id']; ?>" class="btn <?= ($que['display'] == 1) ? 'btn-info' : 'btn-secondary'; ?>">
                                     <?= ($que['display'] == 1) ? '顯示' : '隱藏'; ?>
-                                </a>
-                                <button class="btn btn-success">編輯</button>
-                                <a href="./api/del.php?id=<?= $que['id']; ?>">
+                                </a> -->
+                                <!-- <button class="btn btn-success">編輯</button> -->
+                                <a href="../api/del.php?id=<?= $que['id']; ?>">
                                     <button class="btn btn-danger">刪除</button>
                                 </a>
                             </td>
@@ -107,15 +157,16 @@ include_once "../api/db.php"
     </main>
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+
+    <script>
+        function more() {
+            let opt = `<div>
+                        <label for="" id="opt">投票選項&nbsp;</label>
+                        <input type="text" name="option[]">
+                    </div>`
+            $("#opt").before(opt)
+        }
+    </script>
 </body>
 
 </html>
-<script>
-    function more() {
-        let opt = `<div class="p-2">
-                        <label for="">選項</label>
-                        <input type="text" name="opt[]">
-                    </div>`
-        $("#option").before(opt)
-    }
-</script>

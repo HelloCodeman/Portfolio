@@ -25,7 +25,7 @@ include_once "../api/db.php"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../index.php">
                 <i class="fa-solid fa-camera-retro"></i>
                 &nbsp;iShot
             </a>

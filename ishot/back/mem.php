@@ -1,5 +1,6 @@
 <?php
 include_once "../api/db.php";
+// dd($_POST);
 
 if (!isset($_SESSION['user'])) {
   // 如果未登入，將用戶重新導向到index.php
@@ -14,13 +15,12 @@ if (!isset($_SESSION['user'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../js/bootstrap.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/js.js"></script>
   <script src="../js/jquery-3.4.1.min.js"></script>
-  <script src="../js/bootstrap.js"></script>
-  <title>投票結果</title>
   <style>
     body {
       font-family: fantasy;
@@ -44,10 +44,11 @@ if (!isset($_SESSION['user'])) {
           <li class="nav-item"><a class="nav-link" href="../back/voteidx.php">iVote</a></li>
           <li class="nav-item"><a class="nav-link" href="../back/admin.php">iAdmin</a></li>
         </ul>
-        <!-- <button class="btn btn-light" style="font-style: italic;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">iLogin</button>      </div> -->
+        <!-- <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a> -->
       </div>
+    </div>
   </nav>
-  <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasExampleLabel">
+  <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h5>會員登入</h5>
     </div>
@@ -94,36 +95,46 @@ if (!isset($_SESSION['user'])) {
   </div>
   </div> -->
 
-  <?php
-  $subject = $Que->find($_GET['id']);
-  ?>
-  <div class='container'>
-    <header class="p-3">
-      <h2 class="text-center"><?= $subject['text']; ?></h>
-    </header>
-    <ul class="list-group col-6 mx-auto">
-      <?php
-      $opts = $Que->all(['subject_id' => $_GET['id']]);
-      foreach ($opts as $idx => $opt) {
-        $div = ($subject['count'] > 0) ? $subject['count'] : 1;
-        $rate = round($opt['count'] / $div, 3);
-      ?>
-        <li class="list-group-item list-group-item-action d-flex">
-          <div class="col-6">
-            <?= $idx + 1; ?>.
-            <?= $opt['text']; ?>
-          </div>
-          <div class="col-6 d-flex">
-            <div class="col-8 bg-secondary" style="width:<?= $rate * 0.667 * 100; ?>%"></div>
-            <div class="col-4">&nbsp;&nbsp; <?= $opt['count'] ?>票(<?= $rate * 100; ?>%)</div>
-          </div>
-        </li>
-      <?php
-      }
-      ?>
-    </ul>
-    <button class="btn btn-primary d-block mx-auto mt-3" onclick="location.href='../back/voteidx.php'">返回</button>
-  </div>
-</body>
+  <header class="p-3">
+    <h1 class="text-center">會員中心</h1>
+  </header>
 
-</html>
+  <?php
+  $users = $User->all(['acc' => $_SESSION['user']]);
+  foreach ($users as $user) {
+  ?>
+
+    <div class="container align-center">
+      <form method="post">
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <label for="account" class="form-label fs-3">Account 帳號</label>
+            <input type="text" class="form-control" value="<?= $user['acc']; ?>" id="acc" readonly>
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <label for="password" class="form-label fs-3">Password 密碼</label>
+            <input type="password" class="form-control" value="<?= $user['pw']; ?>" id="pw">
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <label for="email" class="form-label fs-3">Email 電子郵箱</label>
+            <input type="text" class="form-control" value="<?= $user['email']; ?>" id="email">
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+          <button type="submit" class="btn btn-primary">送出</button>
+        </div>
+      <?php
+    } ?>
+      </form>
+    </div>
+</body>
