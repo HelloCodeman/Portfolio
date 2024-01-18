@@ -2,208 +2,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-</head>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP 文字動畫 timeline</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <!-- 引入google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
     body {
-        height: 100vh;
-        background-color: #171616;
-        overflow: hidden;
+      height: 100vh;
+      background: #171616;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      overflow: hidden;
+      font-family: "Press Start 2P", system-ui;
+      font-weight: 400;
+      font-style: normal;
     }
 
-    .container-fluid {
-        height: 100vh;
-        justify-items: center;
-        align-items: center;
-        display: flex;
+    .banner {
+      width: 50%;
     }
 
-    @keyframes animate {
-        0% {
-            text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
-        }
-
-        50% {
-            text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 20px rgba(255, 255, 0, 1);
-        }
-
-        100% {
-            text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
-        }
+    .item {
+      width: 100%;
+      font-size: 50px;
+      color: #dabea7;
+      font-weight: bold;
+      text-align: center;
     }
-
-    .container {
-        background-color: #dabea7;
-        font-family: fantasy;
-        text-align: center;
-        width: 50%;
-        border-radius: 40px;
-        z-index: 2;
-        /* 設置較高的 z-index 值讓星星不會蓋過container */
-    }
-
-    .star {
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: #dabea7;
-        z-index: 1;
-        /* 設置較低的 z-index 值 */
-    }
-
-    .row:hover>h2 {
-        text-shadow: 1px 1px 5px #000000;
-        color: #ffffff;
-        scale: 1.1;
-    }
-</style>
+  </style>
+</head>
 
 <body>
-    <div class="container-fluid vh-100">
-        <div class="container">
-            <div class="row">
-                <h2 style="font-style:oblique" class="mt-3">Website</h2>
-                <div class="col">
-                    <a href="./ishot/index.php" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp;一頁式網站</a>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <h2 style="font-style:oblique">Front-end</h2>
-                <div class="col">
-                    <a href="./front-end/supermarket.html" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;超市特賣</a>
-                </div>
-                <div class="col">
-                    <a href="./front-end/departure_animation.html" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;飛機起飛動畫</a>
-                </div>
-                <div class="col">
-                    <a href="./front-end/classindex.html" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;班級師生表</a>
-                </div>
-                <div class="col">
-                    <a href="./front-end/calculatorJS.html" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-brands fa-js"></i>&nbsp;&nbsp;加減乘除計算機</a>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <h2 style="font-style:oblique">Back-end</h2>
-                <div class="col">
-                    <a href="./back-end/vote/index.php" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
-                </div>
-                <div class="col">
-                    <a href="./back-end/calendar.php" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
-                </div>
-                <div class="col">
-                    <a href="./back-end/ajax/index.html" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <h2 style="font-style:oblique">Design</h2>
-                <div class="col">
-                    <a href="./img/Travelpost.jpg" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;宣傳海報</a>
-
-                </div>
-                <div class="col">
-                    <a href="./img/Calendar2024.jpg" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
-
-                </div>
-                <div class="col">
-                    <a href="./img/Calendar2024.jpg" type="button" class="btn-sm btn btn-outline-dark"
-                        style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;黃金比例動物</a>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <h2 style="font-style:oblique">Skills</h2>
-                <div class="col-2">
-                    <i class="fa-brands fa-css3-alt" style="font-size: 60px;"></i>
-                    <p s>CSS</p>
-                </div>
-                <div class="col-2">
-                    <i class="fa-brands fa-html5" style="font-size: 60px;"></i>
-                    <p s>HTML</p>
-                </div>
-                <div class="col-2">
-                    <i class="fa-brands fa-js" style="font-size: 60px;"></i>
-                    <p s>JavaScript</p>
-                </div>
-                <div class="col-2">
-                    <i class="fa-brands fa-js" style="font-size: 60px;"></i>
-                    <p s>jQuery</p>
-                </div>
-                <div class="col-2">
-                    <i class="fa-brands fa-php" style="font-size: 60px;"></i>
-                    <p s>PHP</p>
-                </div>
-                <div class="col-2">
-                    <i class="fa-solid fa-database" style="font-size: 60px;"></i>
-                    <p s>MySQL</p>
-                </div>
-            </div>
-
-            <div class="col-3">
-
-            </div>
-            <div class="col-3">
-
-            </div>
-        </div>
-        <br>
+  <div class="container">
+    <div class="item">HTML</div>
+    <div class="item">CSS</div>
+    <div class="item">JavaScript</div>
+    <div class="item">PHP</div>
+    <div class="item">MySQL</div>
+    <div class="item">
+      <a href="collections.html" class="btn btn-light">ENTER</a>
     </div>
-    <!-- jQuery -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
-    <!-- bootstrap -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
-    <!-- 引入 gsap 主程式 -->
-    <script src="./gsap/gsap.js"></script>
+  </div>
 
-    <script>
-        // 建立星星
-        function createStar(starCount) {
-            for (let i = 0; i < starCount; i++) {
-                $('.container-fluid').append(`<div class="star animate">★</div>`)
-            }
+  <!-- bootstrap -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+  </script>
+  <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 引入 gsap 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <script>
 
-            $('.star').each(function (index, star) {
-                $(this).css({
-                    position: 'absolute',
-                    left: gsap.utils.random(0, 100) + '%',
-                    top: gsap.utils.random(0, 100) + '%',
-                    // color: 'yellow',
-                })
-            })
-        }
+    // set 設定初始補間動畫的預設值
+    gsap.set('.container', {
+      perspective: 1000,
+    })
 
-        createStar(70)
+    const tl = gsap.timeline({
+      // repeat: -1,
+      // repeatDelay: 0.3,
+    })
 
-        // 建立星星動畫
-        gsap.to('.star', {
-            'font-size': `random(12,40)`,
-            filter: 'drop-shadow(0 0 15px rgba(255,255,0,1))',
-            left: '+=random(-10,10)%',
-            x: 'random(-50,50)',
-            y: 'random(-50,50)',
-            rotationY: '-=130',
-            duration: 4,
-            stagger: 0.5,
-            repeat: -1,
-            scale: 0.6,
-        })
-    </script>
+    tl
+      .from('.item', {
+        y: 60,
+        rotationX: -90,
+        autoAlpha: 0, // 元素會變得完全透明，使其在畫面上不可見
+        stagger: 1.2, // 每個 .item 元素動畫將以 2 秒的間隔依次執行
+      })
+
+      .to('.item', {
+        y: -60,
+        // rotationX: 
+        autoAlpha: 1,
+        stagger: 1.2,
+      }, 1.2) // 第三參數只設定動畫在時間軸的位置，表示把動畫放在時間軸2.5秒的位置
+
+  </script>
 </body>
 
 </html>
