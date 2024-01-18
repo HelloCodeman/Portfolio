@@ -1,10 +1,12 @@
 <?php
 include_once "db.php";
 
-if (isset($_POST['del'])) {
-  foreach ($_POST['del'] as $id) {
-    $User->del($id);
-  }
+$res = $User->save($_POST);
+
+if ($res > 0) {
+  $_SESSION['msg'] = "更新成功";
+} else {
+  $_SESSION["msg"] = "資料無異動";
 }
 
-to("../admin.php");
+to("../front/mem.php");

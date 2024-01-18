@@ -48,7 +48,7 @@ include_once "./api/db.php"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-camera-retro"></i>&nbsp;iShot</a>
+            <a class="navbar-brand" href="index.php"><i class="fa-solid fa-camera-retro"></i>&nbsp;iShot</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,9 +71,9 @@ include_once "./api/db.php"
                             iMember
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./front/mem.php">iMember</a></li>
-                            <li><a class="dropdown-item" href="./front/voteidx.php">iVote</a></li>
-                            <li><a class="dropdown-item" href="#bottom">iAdmin</a></li>
+                            <li><a class="dropdown-item" href="./back/mem.php">iMember</a></li>
+                            <li><a class="dropdown-item" href="./back/voteidx.php">iVote</a></li>
+                            <li><a class="dropdown-item" href="./back/admin.php">iAdmin</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -90,18 +90,15 @@ include_once "./api/db.php"
         </div>
         <div class="offcanvas-body">
             <div class="container text-center">
-                <form action="./api/chk_acc.php" method="post">
-                    <div class="form-outline mb-3">
-                        <?php
-                        if (isset($_GET['error'])) {
-                            echo "<p style='color:red'>帳號或密碼錯誤</p>";
-                        }
-                        ?>
+                <form action="./api/login.php" method="post">
+                    <div class="form-outline">
                         <?php
                         if (isset($_SESSION['user'])) {
+                            echo "歡迎光臨 " . $_SESSION['user'];
+                            echo "&nbsp;";
+                            echo "<br>";
+                            echo "<a href='./api/logout.php' class='btn btn-dark' style='font-size:15px'>登出</a>";
                         ?>
-                            <a href="./api/logout.php"><input type="button" value="登出"></a>
-
                         <?php
                         } else {
                         ?>
@@ -336,7 +333,7 @@ include_once "./api/db.php"
                                 <i class="fa-brands fa-instagram" style="font-size:32px"></i>
                             </a>
                         </div>
-                        <div class="col"><a href="https://pda.104.com.tw/profile/edit?vno=74rk3wa0w">
+                        <div class="col"><a href="https://profile.104.com.tw/203nLE7A7XN/about/">
                                 <i class="fa-solid fa-user" style="font-size:27px"></i>
                             </a>
                         </div>

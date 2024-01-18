@@ -1,5 +1,11 @@
 <?php
-include_once "../api/db.php"
+include_once "../api/db.php";
+
+if (!isset($_SESSION['user'])) {
+  // 如果未登入，將用戶重新導向到index.php
+  echo "<script>alert('請先登入'); window.location.href = '../index.php';</script>";
+  exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +31,7 @@ include_once "../api/db.php"
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="../index.php">
         <i class="fa-solid fa-camera-retro"></i>
         &nbsp;iShot
       </a>
@@ -33,9 +39,9 @@ include_once "../api/db.php"
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.php">iHome</a></li>
-          <li class="nav-item"><a class="nav-link" href="../front/mem.php">iMember</a></li>
-          <li class="nav-item"><a class="nav-link" href="../front/voteidx.php">iVote</a></li>
-          <li class="nav-item"><a class="nav-link" href="../back/voteadmin.php">iAdmin</a></li>
+          <li class="nav-item"><a class="nav-link" href="../back/mem.php">iMember</a></li>
+          <li class="nav-item"><a class="nav-link" href="../back/voteidx.php">iVote</a></li>
+          <li class="nav-item"><a class="nav-link" href="../back/admin.php">iAdmin</a></li>
         </ul>
         <!-- <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a> -->
       </div>
@@ -47,8 +53,7 @@ include_once "../api/db.php"
   </header>
   <main class="container">
     <fieldset>
-      <legend>
-      </legend>
+      <a class='btn btn-secondary mb-2' href="../back/voteadmin.php">主題管理</a>
       <table class="table">
         <tr>
           <th>編號</th>
@@ -58,7 +63,7 @@ include_once "../api/db.php"
           <th>投票</th>
         </tr>
         <?php
-        $ques = $Que->all(['subject_id' => 0, 'display' => 1]);
+        $ques = $Que->all(['subject_id' => 0]);
         foreach ($ques as $idx => $que) {
         ?>
           <tr>
@@ -69,7 +74,7 @@ include_once "../api/db.php"
               <a class='btn btn-dark' href="../back/result.php?id=<?= $que['id']; ?>">投票結果</a>
             </td>
             <td>
-              <a class="btn btn-outline-secondary" href="vote.php?id=<?= $que['id']; ?>">我要投票</a>
+              <a class="btn btn-outline-secondary" href="../back/vote.php?id=<?= $que['id']; ?>">我要投票</a>
             </td>
           </tr>
         <?php

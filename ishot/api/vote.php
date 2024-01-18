@@ -2,12 +2,15 @@
 include_once "db.php";
 
 $opt = $Que->find($_POST['opt']);
-$opt['count'] = $opt['count'] + 1;
+// $opt['count'] = $opt['count'] + 1;
+$opt['count']++;
 
-$subject = $Que->find($opt['subject_id']);
-$subject['count'] = $subject['count'] + 1;
+
+$sub = $Que->find($opt['subject_id']);
+// $sub['count'] = $sub['count'] + 1;
+$sub['count']++;
 
 $Que->save($opt);
-$Que->save($subject);
+$Que->save($sub);
 
-to("../back/result.php?id={$subject['id']}");
+to("../back/result.php?id={$sub['id']}");

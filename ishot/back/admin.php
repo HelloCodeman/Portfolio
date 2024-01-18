@@ -1,5 +1,11 @@
 <?php
-include_once "../api/db.php"
+include_once "../api/db.php";
+
+if (!isset($_SESSION['user'])) {
+    // 如果未登入，將用戶重新導向到index.php
+    echo "<script>alert('請先登入'); window.location.href = '../index.php';</script>";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +40,9 @@ include_once "../api/db.php"
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.php">iHome</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../front/mem.php">iMember</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../front/voteidx.php">iVote</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../back/voteadmin.php">iAdmin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/mem.php">iMember</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/voteidx.php">iVote</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/admin.php">iAdmin</a></li>
                 </ul>
                 <!-- <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a> -->
             </div>
@@ -44,79 +50,39 @@ include_once "../api/db.php"
     </nav>
 
     <header class="container p-3">
-        <h1 class="text-center">投票管理</h1>
+        <h1 class="text-center">帳號管理</h1>
     </header>
-    <main class="container p-3">
-        <fieldset>
-            <legend>
-                新增投票
-            </legend>
-            <form action="./api/add_que.php" method="post">
-                <!-- 主題 -->
-                <div class="d-flex">
-                    <div class="col-1 bg-light">問卷名稱</div>
-                    <div class="col-6">
-                        <input type="text" name="subject" id="">
-                    </div>
-                </div>
-                <!-- 選項 -->
-                <div class="bg-light" id="option">
-                    <div class="p-2">
-                        <label for="">選項</label>
-                        <input type="text" name="opt[]">
-                        <input type="button" value="更多" onclick="more()">
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" value="新增">
-                    <input type="reset" value="清空">
-                </div>
-            </form>
-        </fieldset>
-        <fieldset>
-            <legend>問卷列表</legend>
-            <div class="col-10 mx-auto">
-                <table class="table">
-                    <tr>
-                        <td>編號</td>
-                        <td>主題內容</td>
-                        <td>操作</td>
-                    </tr>
-                    <?php
-                    $ques = $Que->all(['subject_id' => 0]);
-                    foreach ($ques as $idx => $que) {
-                    ?>
+    <fieldset style="text-align: center;">
+        <form action="./api/edit_user.php" method="post">
+            <table style="width:55%;margin:auto;text-align:center">
+                <tr>
+                    <td>帳號</td>
+                    <td>密碼</td>
+                    <td>刪除</td>
+                </tr>
+                <?php
+                $rows = $User->all();
+                foreach ($rows as $row) {
+                    if ($row['acc'] != 'admin') {
+                ?>
                         <tr>
-                            <td><?= $idx + 1; ?></td>
-                            <td><?= $que['text']; ?></td>
-                            <td>
-                                <a href="./api/show.php?id=<?= $que['id']; ?>" class="btn <?= ($que['display'] == 1) ? 'btn-info' : 'btn-secondary'; ?>">
-                                    <?= ($que['display'] == 1) ? '顯示' : '隱藏'; ?>
-                                </a>
-                                <button class="btn btn-success">編輯</button>
-                                <a href="./api/del.php?id=<?= $que['id']; ?>">
-                                    <button class="btn btn-danger">刪除</button>
-                                </a>
-                            </td>
+                            <td><?= $row['acc']; ?></td>
+                            <!-- <td><?= $row['pw'] ?></td> -->
+                            <td><?= str_repeat("*", mb_strlen($row['pw'])); ?></td>
+                            <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
                         </tr>
-                    <?php
+                <?php
                     }
-                    ?>
-                </table>
+                }
+                ?>
+            </table>
+            <div>
+                <input type="submit" value="確定刪除">
+                <input type="reset" value="清空選取">
             </div>
-        </fieldset>
-    </main>
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+        </form>
+        <script src="../js/jquery-3.4.1.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
 </body>
 
 </html>
-<script>
-    function more() {
-        let opt = `<div class="p-2">
-                        <label for="">選項</label>
-                        <input type="text" name="opt[]">
-                    </div>`
-        $("#option").before(opt)
-    }
-</script>

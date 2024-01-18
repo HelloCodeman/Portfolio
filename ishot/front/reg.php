@@ -1,5 +1,5 @@
 <?php
-include_once "../api/db.php"
+include_once "../api/db.php";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ include_once "../api/db.php"
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../index.php">
                 <i class="fa-solid fa-camera-retro"></i>
                 &nbsp;iShot
             </a>
@@ -33,11 +33,11 @@ include_once "../api/db.php"
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.php">iHome</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../front/mem.php">iMember</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../front/voteidx.php">iVote</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../back/voteadmin.php">iAdmin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/mem.php">iMember</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/voteidx.php">iVote</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../back/admin.php">iAdmin</a></li>
                 </ul>
-                <!-- <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a> -->
+                <a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">iLogin</a>
             </div>
         </div>
     </nav>
@@ -50,66 +50,71 @@ include_once "../api/db.php"
             <table style="margin: auto;text-align: center;">
                 <p style="color: red;">*請設定您要註冊的帳號及密碼 (最長12個字元) </p>
                 <tr>
-                    <td class="clo" style="text-align: left;">Step1: 登入帳號</td>
+                    <td class="" style="text-align: left;">Step1: 登入帳號</td>
                     <td><input type="text" name="acc" id="acc"></td>
                 </tr>
                 <tr>
-                    <td class="clo" style="text-align: left;">Step2: 登入密碼</td>
+                    <td class="" style="text-align: left;">Step2: 登入密碼</td>
                     <td><input type="password" name="pw" id="pw"></td>
                 </tr>
                 <tr>
-                    <td class="clo" style="text-align: left;">Step3: 再次確認密碼</td>
+                    <td class="" style="text-align: left;">Step3: 再次確認密碼</td>
                     <td><input type="password" name="pw2" id="pw2"></td>
                 </tr>
                 <tr>
-                    <td class="clo" style="text-align: left;">Step4: 信箱(忘記密碼時使用)&nbsp;</td>
+                    <td class="" style="text-align: left;">Step4: 信箱(忘記密碼時使用)&nbsp;</td>
                     <td><input type="text" name="email" id="email"></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center">
-                        <input type="submit" value="註冊">
-                        <input type="reset" value="清除">
+                        <input type="submit" value="註冊" class="mt-2">
+                        <input type="reset" value="清除" class="mt-2">
                     </td>
                 </tr>
             </table>
         </form>
     </fieldset>
-    <!-- <script>
-        function reg() {
-            let user = {
-                acc: $(
-                    "#acc").val(),
-                pw: $(
-                    "#pw").val(),
-                pw2: $(
-                    "#pw2").val(),
-                email: $(
-                    "#email").val()
-            }
 
-            if (user.acc != '' && user.pw != '' && user.pw2 != '' && user.email != '') {
-                if (user.pw == user.pw2) {
-                    $.post("./api/chk_acc.php", {
-                            acc: user.acc
-                        }
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5>會員登入</h5>
+        </div>
+        <div class="offcanvas-body">
+            <div class="container text-center">
+                <form action="../api/login.php" method="post">
+                    <div class="form-outline">
+                        <?php
+                        if (isset($_SESSION['user'])) {
+                            echo "歡迎光臨 " . $_SESSION['user'];
+                            echo "&nbsp;";
+                            echo "<br>";
+                            echo "<a href='../api/logout.php' class='btn btn-dark' style='font-size:15px'>登出</a>";
+                        ?>
+                        <?php
+                        } else {
+                        ?>
+                            <label for="account" class="form-label">帳號 Account</label>
+                            <input type="text" name="acc" id="acc" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="password" class="form-label">密碼 Password</label>
+                        <input type="password" name="pw" id="pw" class="form-control">
+                    </div>
+                    <div class="btn-custom">
+                        <button type="submit" class="btn btn-primary" value="登入">登入</button>
+                        <button type="button" class="btn btn-danger" value="離開">離開</button>
+                    </div>
+                </form>
 
-                        , (res) => {
+                <div class="mt-1">
+                    <a href="../front/forget.php">忘記密碼?</a>
+                </div>
+            <?php
+                        };
+            ?>
+            </div>
+        </div>
+    </div>
+    </div>
 
-                            //console.log(res)
-                            if (parseInt(res) == 1) {
-                                alert('帳號重複')
-                            } else {
-                                $.post('./api/reg.php', user, (res) => {
-                                    alert('註冊完成，歡迎加入')
-                                })
-                            }
-                        })
-                } else {
-                    alert("密碼錯誤")
-                }
-            } else {
-                alert('不可空白')
-            }
-        }
-    </script> -->
 </body>
