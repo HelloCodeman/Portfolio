@@ -54,7 +54,7 @@
         /* 設置較高的 z-index 值讓星星不會蓋過container */
     }
 
-    .skills {
+    .skillsp {
         font-family: "Press Start 2P";
         font-size: 15px;
         font-style: italic;
@@ -72,6 +72,16 @@
         text-shadow: 1px 1px 5px #000000;
         color: #ffffff;
         scale: 1.1;
+    }
+
+    @media (max-width:1250px) {
+        .skills {
+            flex-wrap: wrap;
+        }
+
+        .skillsd {
+            width: 45%;
+        }
     }
 </style>
 
@@ -140,31 +150,31 @@
                 </div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row skills">
                 <h2 class="mb-3">Skills</h2>
-                <div class="col-2">
+                <div class="col-2 skillsd">
                     <i class="fa-brands fa-html5" style="font-size: 60px;"></i>
-                    <p class="skills">HTML</p>
+                    <p class="skillsp">HTML</p>
                 </div>
-                <div class="col-2">
+                <div class="col-2 skillsd">
                     <i class="fa-brands fa-css3-alt" style="font-size: 60px;"></i>
-                    <p class="skills">CSS</p>
+                    <p class="skillsp">CSS</p>
                 </div>
-                <div class="col-2">
+                <div class="col-2 skillsd">
                     <i class="fa-brands fa-js" style="font-size: 60px;"></i>
-                    <p class="skills">JS</p>
+                    <p class="skillsp">JS</p>
                 </div>
-                <div class="col-2">
+                <div class="col-2 skillsd">
                     <i class="fa-brands fa-js" style="font-size: 60px;"></i>
-                    <p class="skills">jQuery</p>
+                    <p class="skillsp">jQuery</p>
                 </div>
-                <div class="col-2">
+                <div class="col-2 skillsd">
                     <i class="fa-brands fa-php" style="font-size: 60px;"></i>
-                    <p class="skills">PHP</p>
+                    <p class="skillsp">PHP</p>
                 </div>
-                <div class="col-2">
+                <div class="col-2 skillsd">
                     <i class="fa-solid fa-database" style="font-size: 60px;"></i>
-                    <p class="skills">MySQL</p>
+                    <p class="skillsp">MySQL</p>
                 </div>
             </div>
         </div>
