@@ -61,10 +61,10 @@ include_once "./api/db.php"
                         <a class="nav-link" href="#carousel">iCarousel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#shot">iCard</a>
+                        <a class="nav-link" href="#card">iCard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#collapse">iCollapse</a>
+                        <a class="nav-link" href="#scrolltrigger">iScrollTrigger</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -154,7 +154,7 @@ include_once "./api/db.php"
             </button>
         </div>
     </div>
-    <div id="shot"></div>
+    <div id="card"></div>
     <div class=" container mt-3">
         <h2>海外婚紗服務</h2>
         <div class="row justify-content-around">
@@ -215,7 +215,7 @@ include_once "./api/db.php"
                 <div class="card-body">
                     <h4 class="card-title">日本<br>Japan</h4>
                     <p class="card-text">日本為眾多領域的樞紐中心，在引領流行的東京街頭，拍攝有如日系雜誌封面的時尚婚紗照。</p>
-                    <button id="" data-price="40000" data-level="A" type="button" class="btn btn-primary myBtn">點擊取得優惠價</button>
+                    <button id="scrolltrigger" data-price="40000" data-level="A" type="button" class="btn btn-primary myBtn">點擊取得優惠價</button>
                     <div id="" class="myBox box text-danger mt-2">
                         <span id="" class="mySpan">
                             Lorem ipsum dolor sit amet.
@@ -225,16 +225,7 @@ include_once "./api/db.php"
             </div>
         </div>
     </div>
-    <!-- <div id="collapse"></div> -->
     <div class="container-fluid mt-3 mb-2">
-        <!-- <p style="text-align: center;">
-            <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                攝影座右銘
-            </a>
-            <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                點開發現新視界
-            </a>
-        </p> -->
         <div class="display:flex">
             <div style="text-align:baseline">
                 <p class="scroll1" style="width:10%;font-weight:bold">
