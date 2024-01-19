@@ -436,7 +436,7 @@ include_once "./api/db.php"
                 trigger: '.scroll1',
                 start: 'top bottom', // 預設
                 end: 'bottom top', // 預設
-                markers: true,
+                // markers: true,
                 toggleActions: 'play none none reset',
             },
             x: '40vw',
