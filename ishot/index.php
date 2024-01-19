@@ -225,31 +225,31 @@ include_once "./api/db.php"
             </div>
         </div>
     </div>
-    <div id="collapse"></div>
+    <!-- <div id="collapse"></div> -->
     <div class="container-fluid mt-3 mb-2">
-        <p style="text-align: center;">
+        <!-- <p style="text-align: center;">
             <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 攝影座右銘
             </a>
             <a class="btn btn-outline-dark" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
                 點開發現新視界
             </a>
-        </p>
-        <div class="row" style="text-align: center">
-            <div class="col-8">
-                <div class="card card-body collapse multi-collapse border-black2" id="collapseExample">
-                    世界並不缺少美
-                </div>
+        </p> -->
+        <div class="display:flex">
+            <div style="text-align:baseline">
+                <p class="scroll1" style="width:10%;font-weight:bold">
+                    世界並不缺少美，
+                </p>
             </div>
-            <div class="col-4">
-                <div class="card card-body collapse multi-collapseb border-black2" id="collapseExample2">
+            <div style="text-align:right">
+                <p class="scroll2" style="font-weight:bold">
                     而是缺少發現美的眼睛。
-                </div>
+                </p>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-date">
         <div class="d-flex">
             <div class="col item">
                 <img src="./img/house.jpg" style="width: 100%;height: 600px;">
@@ -298,15 +298,29 @@ include_once "./api/db.php"
                 </div>
                 <div class="col-6">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-3">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" placeholder="">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" placeholder="">
+                        <div class="col-3">
+                            <label for="type">Type</label>
+                            <select class="form-control" placeholder="123">
+                                <option value="">請選擇</option>
+                                <option value="價格">價格</option>
+                                <option value="行程">行程</option>
+                                <option value="方案">方案</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div class="col-5">
+                            <label for="phone">Phone</label>
+                            <input type="tel" class="form-control">
                         </div>
                     </div>
                     <div class="row">
@@ -345,32 +359,25 @@ include_once "./api/db.php"
             </div>
         </div>
     </div>
-    <hr>
-    <div class="container mt-3" id="bottom">
-        <div class="dropdown" style="text-align: center;">
-            <a class="btn btn-outline-info dropdown-toggle fst-italic" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                iSales and Refunds
-            </a>
-            <a class="btn btn-outline-danger dropdown-toggle fst-italic" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                iLegal
-            </a>
-            <a class="btn btn-outline-warning dropdown-toggle fst-italic" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                iPrivacy Policy
-            </a>
-            <a class="btn btn-outline-dark dropdown-toggle fst-italic" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                iUse of Cookies
-            </a>
-        </div>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="">iAction</a></li>
-            <li><a class="dropdown-item" href="">iAnother action</a></li>
-            <li><a class="dropdown-item" href="">iSomethingelse</a></li>
-        </ul>
-    </div>
+    <marquee behavior="" direction="" style="font-size:15px;margin-bottom:-20px;">
+        <?= date("m月d日 l"); ?> |
+        今日瀏覽:
+        <?= $Total->find(['date' => date("Y-m-d")])['total']; ?> | 累積瀏覽:
+        <?= $Total->sum('total'); ?>
+    </marquee>
+    <div class="container mt-1 text-center">
+        <hr>
+        <p style="font-size: 15px;">
+            iShot 愛攝影
+            <br>
+            Copyright © 2024 iShot All rights reserved.
+        </p>
     </div>
 
-    <p class="mb-3"></p>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- 引入jQury、gsap、scrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../gsap/gsap.js"></script>
+    <script src="../gsap/ScrollTrigger.js"></script>
 
     <script>
         // 海外婚紗促銷js
@@ -419,6 +426,35 @@ include_once "./api/db.php"
                 behavior: 'smooth' // 讓滾動有平滑的動畫效果
             });
         }
+
+        // 註冊 scrollTrigger 套件
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 綁定座右銘1
+        const tween = gsap.to('.scroll1', {
+            scrollTrigger: {
+                trigger: '.scroll1',
+                start: 'top bottom', // 預設
+                end: 'bottom top', // 預設
+                markers: true,
+                toggleActions: 'play none none reset',
+            },
+            x: '40vw',
+            duration: 3,
+            ease: 'power2'
+        })
+        // 綁定座右銘2
+        const tween2 = gsap.to('.scroll2', {
+            scrollTrigger: {
+                trigger: '.scroll2',
+                start: 'top bottom',
+                end: 'bottom top',
+                toggleActions: 'play none none reset',
+            },
+            x: '-40vw',
+            duration: 3,
+            ease: 'power3'
+        })
     </script>
 
 </body>

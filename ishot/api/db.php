@@ -148,7 +148,6 @@ function to($url)
     header("location:$url");
 }
 
-$Title = new DB('titles');
 $Total = new DB('total');
 $User = new DB('user');
 $Que = new DB('ques');
@@ -156,22 +155,20 @@ $Image = new DB('image');
 $News = new DB('news');
 $Admin = new DB('admin');
 
-//$tables=array_keys(get_defined_vars());
-/* dd($tables); */
-if (isset($_GET['do'])) {
-    //$key=ucfirst($_GET['do']);
 
-    if (isset(${ucfirst($_GET['do'])})) {
-        $DB = ${ucfirst($_GET['do'])};
+// 如果尚未設定 $_SESSION['visited']，則執行以下程式碼
+if (!isset($_SESSION['total'])) {
+    // 如果今天的日期在資料庫中已存在，則取得該筆資料
+    if ($Total->count(['date' => date('Y-m-d')]) > 0) {
+        $total = $Total->find(['date' => date('Y-m-d')]);
+        // 將該筆資料的 total 欄位加一
+        $total['total']++;
+        // 儲存更新後的資料
+        $Total->save($total);
+    } else {
+        // 如果今天的日期在資料庫中不存在，則新增一筆資料
+        $Total->save(['total' => 1, 'date' => date('Y-m-d')]);
     }
-    /* if(in_array($key,$tables)){
-        $DB=$$key;
-    } */
-} else {
-    $DB = $Title;
-}
-
-if (!isset($_SESSION['visited'])) {
-    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
-    $_SESSION['visited'] = 1;
+    // 設定 $_SESSION['visited'] 為 1，表示已經訪問過
+    $_SESSION['total'] = 1;
 }

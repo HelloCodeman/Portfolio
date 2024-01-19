@@ -105,7 +105,7 @@ if (!isset($_SESSION['user'])) {
   ?>
 
     <div class="container align-center">
-      <form method="post">
+      <form action="../api/edit_user.php" method="post">
         <div class="row">
           <div class="col-3"></div>
           <div class="col-6">
@@ -118,7 +118,7 @@ if (!isset($_SESSION['user'])) {
           <div class="col-3"></div>
           <div class="col-6">
             <label for="password" class="form-label fs-3">Password 密碼</label>
-            <input type="password" class="form-control" value="<?= $user['pw']; ?>" id="pw">
+            <input type="text" class="form-control" name="pw" value="<?= $user['pw']; ?>" id="pw">
           </div>
           <div class="col-3"></div>
         </div>
@@ -126,12 +126,12 @@ if (!isset($_SESSION['user'])) {
           <div class="col-3"></div>
           <div class="col-6">
             <label for="email" class="form-label fs-3">Email 電子郵箱</label>
-            <input type="text" class="form-control" value="<?= $user['email']; ?>" id="email">
+            <input type="text" class="form-control" name="email" value="<?= $user['email']; ?>" id="email">
           </div>
           <div class="col-3"></div>
         </div>
         <div class="d-flex justify-content-center mt-2">
-          <button type="submit" class="btn btn-primary">送出</button>
+          <button type="submit" class="btn btn-primary">修改</button>
         </div>
       <?php
     } ?>
