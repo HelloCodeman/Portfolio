@@ -12,22 +12,22 @@
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    html,
     body {
       position: relative;
       height: 100%;
+      background-color: #eee;
+      overflow: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    body {
-      background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
-      color: #000;
       margin: 0;
       padding: 0;
+    }
+
+    .container-fluid {
+      justify-items: center;
+      align-items: center;
+      display: flex;
     }
 
     .swiper {
@@ -77,40 +77,66 @@
       stroke-dasharray: 125.6;
       transform: rotate(-90deg);
     }
+
+    /* 星星 */
+    .star {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #dabea7;
+
+    }
+
+    @keyframes animate {
+      0% {
+        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+      }
+
+      50% {
+        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 20px rgba(255, 255, 0, 1);
+      }
+
+      100% {
+        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Swiper -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+
+  <div class="container-fluid vh-100">
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </div>
       </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+      <div class="autoplay-progress">
+        <svg viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span></span>
       </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-      </div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-    <div class="autoplay-progress">
-      <svg viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r="20"></circle>
-      </svg>
-      <span></span>
     </div>
   </div>
 </body>
@@ -123,6 +149,7 @@
 <!-- gsap  -->
 <script src="./gsap/gsap.js"></script>
 <script src="./gsap/ScrollTrigger.js"></script>
+
 <script>
   const progressCircle = document.querySelector(".autoplay-progress svg");
   const progressContent = document.querySelector(".autoplay-progress span");
@@ -148,6 +175,38 @@
       }
     }
   });
+
+  // 建立星星
+  function createStar(starCount) {
+    for (let i = 0; i < starCount; i++) {
+      $('.container-fluid').append(`<div class="star animate">★</div>`)
+    }
+
+    $('.star').each(function (index, star) {
+      $(this).css({
+        position: 'absolute',
+        left: gsap.utils.random(0, 100) + '%',
+        top: gsap.utils.random(0, 100) + '%',
+        // color: 'yellow',
+      })
+    })
+  }
+
+  createStar(20)
+
+  // 建立星星動畫
+  gsap.to('.star', {
+    'font-size': `random(10,30)`,
+    filter: 'drop-shadow(0 0 15px #dabea7)',
+    left: '+=random(-10,10)%',
+    x: 'random(-50,50)',
+    y: 'random(-50,50)',
+    rotationY: '-=130',
+    duration: 4,
+    stagger: 0.5,
+    repeat: -1,
+    scale: 0.5,
+  })
 </script>
 
 </html>
