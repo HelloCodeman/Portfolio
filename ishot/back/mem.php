@@ -110,7 +110,7 @@ if (!isset($_SESSION['user'])) {
           <div class="col-3"></div>
           <div class="col-6">
             <label for="account" class="form-label fs-3">Account 帳號</label>
-            <input type="text" class="form-control" value="<?= $user['acc']; ?>" id="acc" readonly>
+            <input type="text" class="form-control" name="acc" value="<?= $user['acc']; ?>" id="acc" readonly>
           </div>
           <div class="col-3"></div>
         </div>
