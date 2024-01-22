@@ -453,18 +453,18 @@
 
             // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=animals 的元素
             $('.animals').on('mouseenter', function animals() {
-                $('.skills').find('.ai').css({
+                $('.skills').find('.html, .css, .ai, .jq, .js').css({
                     'transition': 'transform 0.3s ease'
                 })
-                $('.skills').find('.html, .css, .php, .mysql, .ps, .jq, .js').css({
+                $('.skills').find('.php, .mysql, .ps').css({
                     'opacity': '0',
                     'transition': 'transform 0.3s ease'
                 })
             }).on('mouseleave', function animals() {
-                $('.skills').find('.ai').css({
+                $('.skills').find('.html, .css, .ai, .jq, .js').css({
                     'transition': 'transform 0.3s ease'
                 })
-                $('.skills').find('.html, .css, .php, .mysql, .ps, .jq, .js').css({
+                $('.skills').find('.php, .mysql, .ps').css({
                     'opacity': '1',
                     'transition': 'transform 0.3s ease'
                 })
