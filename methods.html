@@ -1,0 +1,58 @@
+<script>
+
+  // 建立星星
+  function createStar(starCount) {
+    for (let i = 0; i < starCount; i++) {
+      $('.container-fluid').append(`<div class="star animate">★</div>`)
+    }
+
+    $('.star').each(function (index, star) {
+      $(this).css({
+        position: 'absolute',
+        left: gsap.utils.random(0, 100) + '%',
+        top: gsap.utils.random(0, 100) + '%',
+        // color: 'yellow',
+      })
+    })
+  }
+
+  createStar(20)
+
+  // 建立星星動畫
+  gsap.to('.star', {
+    'font-size': `random(10,30)`,
+    filter: 'drop-shadow(0 0 15px #dabea7)',
+    left: '+=random(-10,10)%',
+    x: 'random(-50,50)',
+    y: 'random(-50,50)',
+    rotationY: '-=130',
+    duration: 4,
+    stagger: 0.5,
+    repeat: -1,
+    scale: 0.5,
+  })
+
+
+  // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=website 的元素
+  $('.website').on('mouseenter', function website() {
+    // 在進入時，將沒用到的技術設定為 opacity(0)並在0.3s呈現
+    $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
+      // 選擇多個元素一起生效的話要用''包起來
+      'transition': 'transform 0.3s ease'
+    })
+    $('.skills').find('.ps, .ai').css({
+      'opacity': '0',
+      'transition': 'transform 0.3s ease'
+    })
+  }).on('mouseleave', function website() {
+    // 在離開時，將元素更改過的屬性還原其設定
+    $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
+      'transition': 'transform 0.3s ease'
+    })
+    $('.skills').find('.ps, .ai').css({
+      'opacity': '1',
+      'transition': 'transform 0.3s ease'
+    })
+  });
+
+</script>

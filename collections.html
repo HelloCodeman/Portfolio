@@ -98,6 +98,10 @@
             width: 45%;
         }
     }
+
+    a {
+        border: 2px;
+    }
 </style>
 
 <body>
@@ -258,217 +262,39 @@
                 scale: 0.3,
             })
 
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=website 的元素
-            $('.website').on('mouseenter', function website() {
-                // 在進入時，將沒用到的技術設定為 opacity(0)並在0.3s呈現
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    // 選擇多個元素一起生效的話要用''包起來
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function website() {
-                // 在離開時，將元素更改過的屬性還原其設定
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
+            // 已簡化過
+            // function 設定一個參數表示mouse懸停 (class選擇器, 要隱藏的選擇器, 要顯示的選擇器)
+            function mouseEvent(skills, hide, show) {
+                $(skills).on('mouseenter', function () {
+                    $('.skills').find(hide).css({
+                        'transition': 'transform 0.3s ease',
+                        'opacity': '0'
+                    });
+                    $('.skills').find(show).css({
+                        'transition': 'transform 0.3s ease',
+                        'opacity': '1'
+                    });
+                }).on('mouseleave', function () {
+                    $('.skills').find(hide + ', ' + show).css({
+                        'transition': 'transform 0.3s ease',
+                        'opacity': '1'
+                    });
+                });
+            }
 
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=supermarket 的元素
-            $('.supermarket').on('mouseenter', function supermarket() {
-                $('.skills').find('.html, .css, .js, .jq').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function supermarket() {
-                $('.skills').find('.html, .css, .js, .jq').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
+            // function mouseEvent(class選擇器, 要隱藏的選擇器, 要顯示的選擇器)
+            mouseEvent('.website', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
+            mouseEvent('.supermarket', '.php, .mysql, .ps, .ai', '.html, .css, .js, .jq');
+            mouseEvent('.animation', '.php, .mysql, .ps, .ai, .jq', '.html, .css, .js');
+            mouseEvent('.classindex', '.php, .mysql, .ps, .ai, .jq, .js', '.html, .css');
+            mouseEvent('.calculator', '.php, .mysql, .ps, .ai', '.html, .css, .jq, .js');
+            mouseEvent('.vote', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
+            mouseEvent('.calendar', '.mysql, .ps, .ai, .jq, .js', '.html, .css, .php');
+            mouseEvent('.school', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
+            mouseEvent('.travelpost', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
+            mouseEvent('.calendar2024', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
+            mouseEvent('.animals', '.php, .mysql, .ps', '.html, .css, .ai, .jq, .js');
 
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=animation 的元素
-            $('.animation').on('mouseenter', function animation() {
-                $('.skills').find('.html, .css, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function animation() {
-                $('.skills').find('.html, .css, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=classindex 的元素
-            $('.classindex').on('mouseenter', function classindex() {
-                $('.skills').find('.html, .css').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function classindex() {
-                $('.skills').find('.html, .css').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=calculator 的元素
-            $('.calculator').on('mouseenter', function calculator() {
-                $('.skills').find('.html, .css, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function calculator() {
-                $('.skills').find('.html, .css, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=vote 的元素
-            $('.vote').on('mouseenter', function vote() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function vote() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=calendar 的元素
-            $('.calendar').on('mouseenter', function calendar() {
-                $('.skills').find('.html, .css, .php').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function calendar() {
-                $('.skills').find('.html, .css, .php').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=school 的元素
-            $('.school').on('mouseenter', function school() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function school() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=travelpost 的元素
-            $('.travelpost').on('mouseenter', function travelpost() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function travelpost() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=calendar2024 的元素
-            $('.calendar2024').on('mouseenter', function calendar2024() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function calendar2024() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=animals 的元素
-            $('.animals').on('mouseenter', function animals() {
-                $('.skills').find('.html, .css, .ai, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function animals() {
-                $('.skills').find('.html, .css, .ai, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
         </script>
 </body>
 
