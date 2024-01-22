@@ -14,33 +14,42 @@
   <style>
     body {
       position: relative;
-      height: 100%;
-      background-color: #eee;
+      height: 100vh;
+      background-color: #ffffff;
       overflow: hidden;
-      display: flex;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-family: '華康正黑體';
       font-size: 14px;
       margin: 0;
       padding: 0;
     }
 
     .container-fluid {
+      height: 50vh;
       justify-items: center;
       align-items: center;
       display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      font-style: italic;
+      font-family: '台北黑體', sans-serif;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
     }
 
     .swiper {
-      width: 500px;
-      height: 500px;
+      width: 600px;
+      height: 655px;
       border-radius: 30px;
+      margin: auto;
     }
 
     .swiper-slide {
       background-position: center;
       background-size: cover;
-      width: 500px;
-      height: 400px;
+      width: 600px;
+      height: 600px;
     }
 
     .swiper-slide img {
@@ -104,10 +113,10 @@
 </head>
 
 <body>
-
   <div class="container-fluid vh-100">
     <!-- Swiper -->
-    <div class="swiper mySwiper">
+    <div class="swiper mySwiper text-center">
+      <h2>用Ai畫出20隻黃金比例動物</h2>
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img src="../img/01鯨魚.jpg" />
@@ -171,8 +180,8 @@
 <!-- jQuery -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
 <!-- gsap  -->
-<script src="./gsap/gsap.js"></script>
-<script src="./gsap/ScrollTrigger.js"></script>
+<script src="../gsap/gsap.js"></script>
+<!-- <script src="../gsap/ScrollTrigger.js"></script> -->
 
 <script>
   const progressCircle = document.querySelector(".autoplay-progress svg");
