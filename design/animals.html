@@ -2,194 +2,194 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>he11owor1d!</title>
-  <!-- Swiper  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css">
-  <!-- Bootstrap  -->
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css'>
-  <!-- google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    body {
-      position: relative;
-      height: 100vh;
-      background-color: #ffffff;
-      overflow: hidden;
-      font-family: '華康正黑體';
-      font-size: 14px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container-fluid {
-      height: 50vh;
-      justify-items: center;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h2 {
-      font-style: italic;
-      font-family: '台北黑體', sans-serif;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-    }
-
-    .swiper {
-      width: 600px;
-      height: 655px;
-      border-radius: 30px;
-      margin: auto;
-    }
-
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 600px;
-      height: 600px;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-    }
-
-    .autoplay-progress {
-      position: absolute;
-      right: 16px;
-      bottom: 16px;
-      z-index: 10;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: var(--swiper-theme-color);
-    }
-
-    .autoplay-progress svg {
-      --progress: 0;
-      position: absolute;
-      left: 0;
-      top: 0px;
-      z-index: 10;
-      width: 100%;
-      height: 100%;
-      stroke-width: 4px;
-      stroke: var(--swiper-theme-color);
-      fill: none;
-      stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-      stroke-dasharray: 125.6;
-      transform: rotate(-90deg);
-    }
-
-    /* 星星 */
-    .star {
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #dabea7;
-
-    }
-
-    @keyframes animate {
-      0% {
-        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>he11owor1d!</title>
+   <!-- Bootstrap  -->
+   <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' rel='stylesheet'>
+   <!-- Swiper 因客製化主題顏色所以改用直接引入-->
+   <link href='../swiper/swiper.css' rel="stylesheet">
+   <style>
+      body {
+         position: relative;
+         height: 100vh;
+         background-color: #ffffff;
+         overflow: hidden;
+         font-family: '華康正黑體';
+         font-size: 14px;
+         margin: 0;
+         padding: 0;
       }
 
-      50% {
-        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 20px rgba(255, 255, 0, 1);
+      .container-fluid {
+         height: 50vh;
+         justify-items: center;
+         align-items: center;
+         display: flex;
+         flex-direction: column;
+         z-index: 3;
       }
 
-      100% {
-        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+      h2 {
+         font-style: italic;
+         font-family: '台北黑體', sans-serif;
+         letter-spacing: 2px;
+         margin-bottom: 15px;
       }
-    }
-  </style>
+
+      .swiper {
+         width: 600px;
+         height: 690px;
+         border-radius: 30px;
+         margin: auto;
+      }
+
+      .swiper-slide {
+         background-position: center;
+         background-size: cover;
+         width: 600px;
+         height: 600px;
+      }
+
+      .swiper-slide img {
+         display: block;
+         width: 100%;
+      }
+
+      /* 自動倒數 */
+      .autoplay-progress {
+         position: absolute;
+         right: 16px;
+         bottom: 16px;
+         width: 48px;
+         height: 48px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         color: #dabea7;
+         z-index: 3;
+      }
+
+      .autoplay-progress svg {
+         --progress: 0;
+         position: absolute;
+         left: 0;
+         top: 0px;
+         width: 100%;
+         height: 100%;
+         stroke-width: 4px;
+         stroke: #dabea7;
+         fill: none;
+         stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+         stroke-dasharray: 125.6;
+         transform: rotate(-90deg);
+         z-index: 3;
+      }
+
+      /* 星星 */
+      .star {
+         position: absolute;
+         left: 0;
+         top: 0;
+         color: #dabea7;
+         /* z-index: 1; */
+      }
+
+      @keyframes animate {
+         0% {
+            text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+         }
+
+         50% {
+            text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 20px rgba(255, 255, 0, 1);
+         }
+
+         100% {
+            text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+         }
+      }
+   </style>
 </head>
 
 <body>
-  <div class="container-fluid vh-100">
-    <!-- Swiper -->
-    <div class="swiper mySwiper text-center">
-      <h2>用Ai畫出20隻黃金比例動物</h2>
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="../img/01whale.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/03rhino.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/04bat.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/05turtle.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/06butterfly.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/07parrot.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/010seahorse.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/011walrus.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/012goat.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/013elephant.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/014kangaroo.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/016gorilla.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/018dog.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/019fox.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/020shark.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/021cat.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/023hummingbird.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/028dophin.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/029rabbit.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../img/030hippo.jpg" />
-        </div>
+   <div class="container-fluid vh-100">
+      <!-- Swiper -->
+      <div class="swiper mySwiper text-center">
+         <h2>用Ai畫出20隻黃金比例動物</h2>
+         <div class="swiper-wrapper">
+            <div class="swiper-slide">
+               <img src="../img/01whale.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/03rhino.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/04bat.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/05turtle.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/06butterfly.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/07parrot.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/010seahorse.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/011walrus.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/012goat.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/013elephant.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/014kangaroo.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/016gorilla.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/018dog.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/019fox.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/020shark.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/021cat.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/023hummingbird.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/028dophin.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/029rabbit.jpg" />
+            </div>
+            <div class="swiper-slide">
+               <img src="../img/030hippo.jpg" />
+            </div>
+         </div>
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+         <div class="swiper-pagination"></div>
+         <div class="autoplay-progress">
+            <svg viewBox="0 0 48 48">
+               <circle cx="24" cy="24" r="20"></circle>
+            </svg>
+            <span></span>
+         </div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-      <div class="autoplay-progress">
-        <svg viewBox="0 0 48 48">
-          <circle cx="24" cy="24" r="20"></circle>
-        </svg>
-        <span></span>
-      </div>
-    </div>
-  </div>
+   </div>
 </body>
 <!-- Swiper -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
@@ -199,65 +199,70 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
 <!-- gsap  -->
 <script src="../gsap/gsap.js"></script>
-<!-- <script src="../gsap/ScrollTrigger.js"></script> -->
 
 <script>
-  const progressCircle = document.querySelector(".autoplay-progress svg");
-  const progressContent = document.querySelector(".autoplay-progress span");
-  var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    on: {
-      autoplayTimeLeft(s, time, progress) {
-        progressCircle.style.setProperty("--progress", 1 - progress);
-        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+   // 綁定
+   const progressCircle = document.querySelector(".autoplay-progress svg");
+   const progressContent = document.querySelector(".autoplay-progress span");
+
+   var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,                  // 輪播器中相鄰幻燈片的間距
+      centeredSlides: true,              // 幻燈片是否居中顯示
+      loop: true,                        // 啟用輪播循環
+      autoplay: {
+         delay: 2000,                     // 自動播放的延遲時間（毫秒）
+         disableOnInteraction: false      // 使用者互動後是否停止自動播放
+      },
+      pagination: {
+         el: ".swiper-pagination",        // 分頁元素的類別
+         clickable: true                  // 是否允許點擊分頁切換幻燈片
+      },
+      navigation: {
+         nextEl: ".swiper-button-next",   // 下一個按鈕元素的類別
+         prevEl: ".swiper-button-prev"    // 上一個按鈕元素的類別
+      },
+      on: {
+         // 當輪播器自動播放時觸發的事件
+         autoplayTimeLeft(s, time, progress) {
+            // 設定進度圈的 CSS 變數，用於顯示進度
+            progressCircle.style.setProperty("--progress", 1 - progress);
+            // 更新進度內容文字，顯示剩餘時間（秒）
+            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+         }
       }
-    }
-  });
+   });
 
-  // 建立星星
-  function createStar(starCount) {
-    for (let i = 0; i < starCount; i++) {
-      $('.container-fluid').append(`<div class="star animate">★</div>`)
-    }
+   // 建立星星
+   function createStar(starCount) {
+      for (let i = 0; i < starCount; i++) {
+         $('.container-fluid').append(`<div class="star animate">★</div>`)
+      }
 
-    $('.star').each(function (index, star) {
-      $(this).css({
-        position: 'absolute',
-        left: gsap.utils.random(0, 100) + '%',
-        top: gsap.utils.random(0, 100) + '%',
-        // color: 'yellow',
+      $('.star').each(function (index, star) {
+         $(this).css({
+            position: 'absolute',
+            left: gsap.utils.random(0, 100) + '%',
+            top: gsap.utils.random(0, 100) + '%',
+            // color: 'yellow',
+         })
       })
-    })
-  }
+   }
 
-  createStar(20)
+   createStar(20)
 
-  // 建立星星動畫
-  gsap.to('.star', {
-    'font-size': `random(10,30)`,
-    filter: 'drop-shadow(0 0 15px #dabea7)',
-    left: '+=random(-10,10)%',
-    x: 'random(-50,50)',
-    y: 'random(-50,50)',
-    rotationY: '-=130',
-    duration: 4,
-    stagger: 0.5,
-    repeat: -1,
-    scale: 0.5,
-  })
+   // 建立星星動畫
+   gsap.to('.star', {
+      'font-size': `random(10,30)`,
+      filter: 'drop-shadow(0 0 15px #dabea7)',
+      left: '+=random(-10,10)%',
+      x: 'random(-50,50)',
+      y: 'random(-50,50)',
+      rotationY: '-=130',
+      duration: 4,
+      stagger: 0.5,
+      repeat: -1,
+      scale: 0.5,
+   })
 </script>
 
 </html>
