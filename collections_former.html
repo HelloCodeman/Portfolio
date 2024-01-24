@@ -15,12 +15,16 @@
         height: 100vh;
         background-color: #171616;
         overflow: hidden;
+        display: flex;
+        justify-items: center;
+        align-items: center;
     }
 
     .container-fluid {
+        display: flex;
         justify-items: center;
         align-items: center;
-        display: flex;
+        margin: auto;
     }
 
     .star {
@@ -55,15 +59,10 @@
         /* 設置較高的 z-index 值讓星星不會蓋過container */
     }
 
-    .skills {
-        margin-bottom: -20px;
-    }
-
     .skillsp {
         font-family: "Press Start 2P";
         font-size: 15px;
         font-style: italic;
-        margin-top: 5px;
     }
 
     h2 {
@@ -76,6 +75,7 @@
     .row {
         overflow: hidden;
         display: flex;
+        justify-content: space-around;
     }
 
     .row:hover .col {
@@ -90,12 +90,27 @@
     }
 
     @media (max-width:1250px) {
+
         .skills {
             flex-wrap: wrap;
         }
 
         .skillsd {
             width: 45%;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width:600px) {
+
+        .skills {
+            display: grid;
+            margin: 0 auto;
+        }
+
+        .skillsd {
+            width: 60%;
+            margin: 0 auto;
         }
     }
 
@@ -105,12 +120,12 @@
 </style>
 
 <body>
-    <div class="container-fluid vh-100">
+    <div class="container-fluid">
         <div class="container">
             <div class="row">
                 <h2 class="mt-3 mb-3">Website</h2>
                 <div class="col">
-                    <a href="./ishot/index.php" type="button" class="btn-sm btn btn-outline-dark website"
+                    <a href="./ishot/index.php" type="button" class="btn btn-outline-dark website text-nowrap"
                         style="font-weight: bolder;"><i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp;一頁式網站</a>
                 </div>
             </div>
@@ -118,67 +133,70 @@
             <div class="row">
                 <h2 class="mb-3">Front-end</h2>
                 <div class="col">
-                    <a href="./front-end/supermarket.html" type="button" class="btn-sm btn btn-outline-dark supermarket"
-                        style="font-weight: bolder;"><i class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;超市特賣</a>
+                    <a href="./front-end/supermarket.html" type="button"
+                        class="btn btn btn-outline-dark supermarket text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;超市特賣</a>
                 </div>
                 <div class="col">
                     <a href="./front-end/departure_animation.html" type="button"
-                        class="btn-sm btn btn-outline-dark animation" style="font-weight: bolder;"><i
+                        class="btn btn-outline-dark animation text-nowrap" style="font-weight: bolder;"><i
                             class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;飛機起飛動畫</a>
                 </div>
                 <div class="col">
-                    <a href="./front-end/classindex.html" type="button" class="btn-sm btn btn-outline-dark classindex"
-                        style="font-weight: bolder;"><i class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;班級師生表</a>
+                    <a href="./front-end/classindex.html" type="button"
+                        class="btn btn-outline-dark classindex text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;班級師生表</a>
                 </div>
                 <div class="col">
-                    <a href="./front-end/calculatorJS.html" type="button" class="btn-sm btn btn-outline-dark calculator"
-                        style="font-weight: bolder;"><i class="fa-brands fa-js"></i>&nbsp;&nbsp;加減乘除計算機</a>
+                    <a href="./front-end/calculatorJS.html" type="button"
+                        class="btn btn-outline-dark calculator text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-brands fa-js"></i>&nbsp;&nbsp;加減乘除計算機</a>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <h2 class="mb-3">Back-end</h2>
                 <div class="col">
-                    <a href="./back-end/vote/index.php" type="button" class="btn-sm btn btn-outline-dark vote"
-                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
+                    <a href="./back-end/vote/index.php" type="button"
+                        class="btn btn-outline-dark vote text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
                 </div>
                 <div class="col">
-                    <a href="./back-end/calendar.php" type="button" class="btn-sm btn btn-outline-dark calendar"
-                        style="font-weight: bolder;"><i class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
+                    <a href="./back-end/calendar.php" type="button"
+                        class="btn btn-outline-dark calendar text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
                 </div>
                 <div class="col">
-                    <a href="./back-end/ajax/index.html" type="button" class="btn-sm btn btn-outline-dark school"
-                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
+                    <a href="./back-end/ajax/index.html" type="button"
+                        class="btn btn-outline-dark school text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <h2 class="mb-3">Design</h2>
                 <div class="col">
-                    <a href="./img/Travelpost.jpg" type="button" class="btn-sm btn btn-outline-dark travelpost"
+                    <a href="./img/Travelpost.jpg" type="button" class="btn btn-outline-dark travelpost text-nowrap"
                         style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;宣傳海報</a>
-
                 </div>
                 <div class="col">
-                    <a href="./img/Calendar2024.jpg" type="button" class="btn-sm btn btn-outline-dark calendar2024"
-                        style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
-
+                    <a href="./img/Calendar2024.jpg" type="button"
+                        class="btn btn-outline-dark calendar2024 text-nowrap" style="font-weight: bolder;"><i
+                            class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
                 </div>
                 <div class="col">
-                    <a href="./design/animals.html" type="button" class="btn-sm btn btn-outline-dark animals"
+                    <a href="./design/animals.html" type="button" class="btn btn-outline-dark animals text-nowrap"
                         style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;黃金比例動物</a>
                 </div>
             </div>
             <hr>
-            <div class="row skills">
-                <h2 class="mb-3">Skills
-                </h2>
-                <div class="row">
+            <div class="row mb-1 skills">
+                <h2 class="mb-3">Skills</h2>
+                <div class="row mx-0">
                     <div class="col-3 skillsd">
                         <i class="fa-brands fa-html5 html" style="font-size: 40px;">
                             <p class="skillsp" style="margin-top:15px;">HTML</p>
                         </i>
-
                     </div>
                     <div class="col-3 skillsd">
                         <i class="fi fi-brands-css3 css" style="font-size: 35px;">
@@ -196,12 +214,11 @@
                         </i>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mx-0">
                     <div class="col-3 skillsd">
                         <i class="fa-brands fa-php php" style="font-size: 35px;">
                             <p class="skillsp" style="margin-top: 15px;">PHP</p>
                         </i>
-
                     </div>
                     <div class="col-3 skillsd">
                         <i class="fi fi-brands-mysql mysql" style="font-size: 35px;">
@@ -220,7 +237,6 @@
                     </div>
                 </div>
             </div>
-            <br>
         </div>
         <!-- jQuery -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
@@ -246,11 +262,11 @@
                 })
             }
 
-            createStar(70)
+            createStar(50)
 
             // 建立星星動畫
             gsap.to('.star', {
-                'font-size': `random(10,30)`,
+                'font-size': `random(10,20)`,
                 filter: 'drop-shadow(0 0 15px #dabea7)',
                 left: '+=random(-10,10)%',
                 x: 'random(-50,50)',
@@ -259,220 +275,42 @@
                 duration: 4,
                 stagger: 0.5,
                 repeat: -1,
-                scale: 0.5,
+                scale: 0.3,
             })
 
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=website 的元素
-            $('.website').on('mouseenter', function website() {
-                // 在進入時，將沒用到的技術設定為 opacity(0)並在0.3s呈現
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    // 選擇多個元素一起生效的話要用''包起來
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function website() {
-                // 在離開時，將元素更改過的屬性還原其設定
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
+            // 已簡化過
+            // function 設定一個參數表示mouse懸停 (class選擇器, 要隱藏的選擇器, 要顯示的選擇器)
+            function mouseEvent(skills, hide, show) {
+                $(skills).on('mouseenter', function () {
+                    $('.skills').find(hide).css({
+                        'transition': 'transform 0.3s ease',
+                        'opacity': '0'
+                    });
+                    $('.skills').find(show).css({
+                        'transition': 'transform 0.3s ease',
+                        'opacity': '1'
+                    });
+                }).on('mouseleave', function () {
+                    $('.skills').find(hide + ', ' + show).css({
+                        'transition': 'transform 0.3s ease',
+                        'opacity': '1'
+                    });
+                });
+            }
 
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=supermarket 的元素
-            $('.supermarket').on('mouseenter', function supermarket() {
-                $('.skills').find('.html, .css, .js, .jq').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function supermarket() {
-                $('.skills').find('.html, .css, .js, .jq').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
+            // function mouseEvent(class選擇器, 要隱藏的選擇器, 要顯示的選擇器)
+            mouseEvent('.website', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
+            mouseEvent('.supermarket', '.php, .mysql, .ps, .ai', '.html, .css, .js, .jq');
+            mouseEvent('.animation', '.php, .mysql, .ps, .ai, .jq', '.html, .css, .js');
+            mouseEvent('.classindex', '.php, .mysql, .ps, .ai, .jq, .js', '.html, .css');
+            mouseEvent('.calculator', '.php, .mysql, .ps, .ai', '.html, .css, .jq, .js');
+            mouseEvent('.vote', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
+            mouseEvent('.calendar', '.mysql, .ps, .ai, .jq, .js', '.html, .css, .php');
+            mouseEvent('.school', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
+            mouseEvent('.travelpost', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
+            mouseEvent('.calendar2024', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
+            mouseEvent('.animals', '.php, .mysql, .ps', '.html, .css, .ai, .jq, .js');
 
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=animation 的元素
-            $('.animation').on('mouseenter', function animation() {
-                $('.skills').find('.html, .css, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function animation() {
-                $('.skills').find('.html, .css, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=classindex 的元素
-            $('.classindex').on('mouseenter', function classindex() {
-                $('.skills').find('.html, .css').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function classindex() {
-                $('.skills').find('.html, .css').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=calculator 的元素
-            $('.calculator').on('mouseenter', function calculator() {
-                $('.skills').find('.html, .css, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function calculator() {
-                $('.skills').find('.html, .css, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=vote 的元素
-            $('.vote').on('mouseenter', function vote() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function vote() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=calendar 的元素
-            $('.calendar').on('mouseenter', function calendar() {
-                $('.skills').find('.html, .css, .php').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function calendar() {
-                $('.skills').find('.html, .css, .php').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.mysql, .ps, .ai, .jq, .js').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=school 的元素
-            $('.school').on('mouseenter', function school() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function school() {
-                $('.skills').find('.html, .css, .js, .jq, .php, .mysql').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.ps, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=travelpost 的元素
-            $('.travelpost').on('mouseenter', function travelpost() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function travelpost() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=calendar2024 的元素
-            $('.calendar2024').on('mouseenter', function calendar2024() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function calendar2024() {
-                $('.skills').find('.ps').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .html, .css, .jq, .js, .ai').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
-
-            // 使用 mouseenter 和 mouseleave 監聽滑鼠進入或離開 class=animals 的元素
-            $('.animals').on('mouseenter', function animals() {
-                $('.skills').find('.html, .css, .ai, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps').css({
-                    'opacity': '0',
-                    'transition': 'transform 0.3s ease'
-                })
-            }).on('mouseleave', function animals() {
-                $('.skills').find('.html, .css, .ai, .jq, .js').css({
-                    'transition': 'transform 0.3s ease'
-                })
-                $('.skills').find('.php, .mysql, .ps').css({
-                    'opacity': '1',
-                    'transition': 'transform 0.3s ease'
-                })
-            });
         </script>
 </body>
 

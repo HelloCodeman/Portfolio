@@ -117,6 +117,27 @@
     a {
         border: 2px;
     }
+
+    #myCursor {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0px 0px 3px 3px #dabea7;
+        box-sizing: border-box
+    }
+
+    #myCircle {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        position: absolute;
+    }
+
+    #myCursor,
+    #myCircle {
+        pointer-events: none;
+    }
 </style>
 
 <body>
@@ -157,19 +178,16 @@
             <div class="row">
                 <h2 class="mb-3">Back-end</h2>
                 <div class="col">
-                    <a href="./back-end/vote/index.php" type="button"
-                        class="btn btn-outline-dark vote text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
+                    <a href="./back-end/vote/index.php" type="button" class="btn btn-outline-dark vote text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
                 </div>
                 <div class="col">
-                    <a href="./back-end/calendar.php" type="button"
-                        class="btn btn-outline-dark calendar text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
+                    <a href="./back-end/calendar.php" type="button" class="btn btn-outline-dark calendar text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
                 </div>
                 <div class="col">
-                    <a href="./back-end/ajax/index.html" type="button"
-                        class="btn btn-outline-dark school text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
+                    <a href="./back-end/ajax/index.html" type="button" class="btn btn-outline-dark school text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
                 </div>
             </div>
             <hr>
@@ -180,9 +198,8 @@
                         style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;宣傳海報</a>
                 </div>
                 <div class="col">
-                    <a href="./img/Calendar2024.jpg" type="button"
-                        class="btn btn-outline-dark calendar2024 text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
+                    <a href="./img/Calendar2024.jpg" type="button" class="btn btn-outline-dark calendar2024 text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
                 </div>
                 <div class="col">
                     <a href="./design/animals.html" type="button" class="btn btn-outline-dark animals text-nowrap"
@@ -238,6 +255,9 @@
                 </div>
             </div>
         </div>
+
+        <div id="myCursor"></div>
+        <img src="./img/star.png" style="color: #dabea7;" id="myCircle">
         <!-- jQuery -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
         <!-- bootstrap -->
@@ -311,6 +331,21 @@
             mouseEvent('.calendar2024', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
             mouseEvent('.animals', '.php, .mysql, .ps', '.html, .css, .ai, .jq, .js');
 
+            // 追蹤滑鼠
+            let cursor = document.getElementById("myCursor");
+            let circle = document.getElementById("myCircle");
+
+            window.addEventListener("mousemove", function (e) {  // 當在瀏覽器中移動滑鼠時觸發，將執行指定的函數(e)
+                let x = e.clientX;  // 獲取了滑鼠在瀏覽器視窗中的X座標，並存儲在變數 x 中
+                let y = e.clientY;  // 獲取了滑鼠在瀏覽器視窗中的Y座標，並存儲在變數 y 中
+                cursor.style.left = x - 15 + "px";
+                cursor.style.top = y - 15 + "px";
+
+                setTimeout(() => {
+                    circle.style.left = x - 10 + "px";
+                    circle.style.top = y - 10 + "px";
+                }, 100); // 設定延遲時間
+            })
         </script>
 </body>
 
