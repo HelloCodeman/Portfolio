@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome My World!</title>
+  <!-- bootstrap.css -->
   <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' rel='stylesheet' />
+  <!-- font-awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+  <!-- google font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body,
     html {
       cursor: none;
+      /* 鼠標隱藏 */
     }
 
     body {
@@ -35,78 +39,62 @@
     }
 
     #myCursor {
-      width: 20px;
-      height: 20px;
-      border-radius: 0;
-      position: absolute;
-      color: #dabea7;
-      /* box-shadow: 0px 0px 1px 2px #dabea7; */
-      /* box-sizing: border-box */
-    }
-
-    #myCircle {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      position: absolute;
-      color: #dabea7;
-      /* box-shadow: 0px 0px 3px 3px #dabea7; */
-      /* box-sizing: border-box */
-    }
-
-    #myD {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      position: absolute;
-      color: #dabea7;
-      /* box-shadow: 0px 0px 3px 3px #dabea7; */
-      /* box-sizing: border-box */
-    }
-
-    #myE {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      position: absolute;
-      color: #dabea7;
-      /* box-shadow: 0px 0px 3px 3px #dabea7; */
-      /* box-sizing: border-box */
-    }
-
-    #myCursor,
-    #myCircle,
-    #myD,
-    #myE {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      background-color: #dabea7;
+      /* box-shadow: 0px 0px 5px 2px #dabea7;
+      box-sizing: border-box; */
       pointer-events: none;
+      mix-blend-mode: difference;
+      transition: 0.05s;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="item">HTML</div>
-    <div class="item">CSS</div>
-    <div class="item">JavaScript</div>
-    <div class="item">PHP</div>
-    <div class="item">MySQL</div>
+    <div class="item"><span class="mySpan">HTML</span></div>
+    <div class="item"><span class="mySpan">CSS</span></div>
+    <div class="item"><span class="mySpan">JavaScript</span></div>
+    <div class="item"><span class="mySpan">PHP</span></div>
+    <div class="item"><span class="mySpan">MySQL</span></div>
     <div class="item">
       <a href="collections.html" type="button" class="btn btn-light">ENTER</a>
     </div>
   </div>
 
-  <i class="fa-solid fa-c mx-0" id="myCursor"></i>
-  <i class="fa-solid fa-o mx-0" id="myCircle"></i>
-  <i class="fa-solid fa-d mx-0" id="myD"></i>
-  <i class="fa-solid fa-e mx-0" id="myE"></i>
+  <div id="myCursor"></div>
 
-  <!-- bootstrap -->
+  <!-- bootstrap.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
   <!-- jQuery -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
   <!-- 引入 gsap 主程式 -->
   <script src="./gsap/gsap.js"></script>
   <script>
+    // 追蹤滑鼠
+    var cursor = document.getElementById("myCursor");
+    var spans = document.querySelectorAll(".mySpan");  // 取得文件中class=".mySpan" 的所有元素
+
+    window.addEventListener("mousemove", function (e) {
+      // 根據滑鼠位置更新鼠標位置 減去 myCursor 的一半讓中心點為鼠標觸發點
+      cursor.style.left = e.pageX - 15 + "px";
+      cursor.style.top = e.pageY - 15 + "px";
+    })
+
+    spans.forEach(function (span) {
+      span.addEventListener("mouseenter", function () {
+        cursor.style.width = "60px";
+        cursor.style.height = "60px";
+      });
+
+      span.addEventListener("mouseleave", function () {
+        cursor.style.width = "30px";
+        cursor.style.height = "30px";
+      });
+    });
 
     // set 設定初始補間動畫的預設值
     gsap.set('.container', {
@@ -132,34 +120,6 @@
         autoAlpha: 1,
         stagger: 1.2,
       }, 1.2) // 第三參數只設定動畫在時間軸的位置，表示把動畫放在時間軸1.2秒的位置
-
-    // 追蹤滑鼠
-    let cursor = document.getElementById("myCursor");
-    let circle = document.getElementById("myCircle");
-    let letterD = document.getElementById("myD");
-    let letterE = document.getElementById("myE");
-
-    window.addEventListener("mousemove", function (e) {  // 當在瀏覽器中移動滑鼠時觸發，將執行指定的函數(e)
-      let x = e.clientX;  // 獲取了滑鼠在瀏覽器視窗中的 X 座標，並存儲在變數 x 中
-      let y = e.clientY;  // 獲取了滑鼠在瀏覽器視窗中的 Y 座標，並存儲在變數 y 中
-      cursor.style.left = x - 10 + "px";  // 
-      cursor.style.top = y - 10 + "px";
-
-      setTimeout(() => {
-        circle.style.left = x - 10 + "px";  // x 軸差15px 可排出文字
-        circle.style.top = y - 10 + "px";
-      }, 100); // 設定延遲時間
-
-      setTimeout(() => {
-        letterD.style.left = x - 10 + "px";
-        letterD.style.top = y - 10 + "px";
-      }, 200);
-
-      setTimeout(() => {
-        letterE.style.left = x - 10 + "px";
-        letterE.style.top = y - 10 + "px";
-      }, 300);
-    })
   </script>
 </body>
 
