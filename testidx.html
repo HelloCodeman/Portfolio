@@ -39,12 +39,12 @@
       width: 30px;
       height: 30px;
       border-radius: 100%;
-      background-color: #dabea7;
+      background-color: #ffffff;
       /* box-shadow: 0px 0px 1px 2px #dabea7; */
-      box-sizing: border-box;
+      /* box-sizing: border-box; */
       pointer-events: none;
       mix-blend-mode: difference;
-      transition: 0.05s;
+      /* transition: 0.05s; */
     }
   </style>
 </head>
@@ -70,28 +70,6 @@
   <!-- 引入 gsap 主程式 -->
   <script src="./gsap/gsap.js"></script>
   <script>
-    // 追蹤滑鼠
-    var cursor = document.getElementById("myCursor");
-    var spans = document.querySelectorAll(".mySpan");  // 取得文件中class=".mySpan" 的所有元素
-
-    window.addEventListener("mousemove", function (e) {
-      // 根據滑鼠位置更新鼠標位置 減去 myCursor 的一半讓中心點為鼠標觸發點
-      cursor.style.left = e.pageX - 15 + "px";  
-      cursor.style.top = e.pageY - 15 + "px";
-    })
-
-    spans.forEach(function (span) {
-      span.addEventListener("mouseenter", function () {
-        cursor.style.width = "50px";
-        cursor.style.height = "50px";
-      });
-
-      span.addEventListener("mouseleave", function () {
-        cursor.style.width = "30px";
-        cursor.style.height = "30px";
-      });
-    });
-
     // set 設定初始補間動畫的預設值
     gsap.set('.container', {
       perspective: 1000,
@@ -116,6 +94,30 @@
         autoAlpha: 1,
         stagger: 1.2,
       }, 1.2) // 第三參數只設定動畫在時間軸的位置，表示把動畫放在時間軸1.2秒的位置
+
+    // 追蹤滑鼠
+    let cursor = document.getElementById("myCursor");
+    let spans = document.querySelectorAll(".mySpan");  // 取得文件中class=".mySpan" 的所有元素
+
+    window.addEventListener("mousemove", function (e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      // 根據滑鼠位置更新鼠標位置 減去 myCursor 的一半讓中心點為鼠標觸發點
+      cursor.style.left = x - 15 + "px";
+      cursor.style.top = y - 15 + "px";
+    })
+
+    spans.forEach(function (span) {
+      span.addEventListener("mouseenter", function () {
+        cursor.style.width = "50px";
+        cursor.style.height = "50px";
+      });
+
+      span.addEventListener("mouseleave", function () {
+        cursor.style.width = "30px";
+        cursor.style.height = "30px";
+      });
+    });
   </script>
 </body>
 
