@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scrollTrigger</title>
+  <!-- bootstrap.css -->
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' rel='stylesheet' />
+  <!-- swiper css -->
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css' rel='stylesheet' />
+  <!-- style.css -->
+  <link href="./style.css" rel="stylesheet">
+  <!-- font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "";
+      font-weight: 140;
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+      font-family: "Press Start 2P"
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    .section {
+      width: 100vw;
+    }
+
+    .section.-a {
+      font-size: 6vw;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .me {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .section.-b {
+      color: #001514;
+      height: 500vh;
+      position: relative;
+      background-color: #4E6E58;
+    }
+
+    .section.-c {
+      font-size: 2vw;
+      font-weight: 100;
+      height: 100vh;
+      color: #fff;
+      background-color: #001514;
+    }
+
+    .section.-c a {
+      font-size: 16px;
+      opacity: 0.3;
+      color: #fff;
+      display: block;
+    }
+
+    .section__horizon {
+      top: 0;
+      position: sticky;
+      width: 100%;
+      height: 100vh;
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+    }
+
+    .section__horizon::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .section__horizon::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+
+    .section__horizon::-webkit-scrollbar-thumb {
+      background: #000;
+    }
+
+    .section__horizon>div {
+      width: 100vw;
+      flex: 0 0 auto;
+      left: 0;
+      position: sticky;
+    }
+
+    .section__horizon>div>div {
+      width: 100%;
+      height: 100%;
+      font-size: 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section__horizon>div>span {
+      font-size: 4vw;
+      writing-mode: vertical-lr;
+      padding: 1vw;
+    }
+
+    .section__horizon>div:nth-child(2) {
+      left: 10vw;
+      background-color: #BCAA99;
+    }
+
+    .section__horizon>div:nth-child(3) {
+      left: 20vw;
+      background-color: #645986;
+    }
+
+    .section__horizon>div:nth-child(4) {
+      left: 30vw;
+      background-color: #BCAA99;
+    }
+
+    .section__horizon>div:nth-child(5) {
+      background-color: #CCFF66;
+    }
+
+    .section__entrytext {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .section__footertext {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /*# sourceMappingURL=style.css.map */
+  </style>
+</head>
+
+<body>
+
+  <!-- content start -->
+
+  <section class="section -a">
+    <div class="section__entrytext">
+      <h1 class="scrollDown mb-5"></h1>
+      <img src="../img/me2.png" id="me" style="height: 75%;">
+    </div>
+  </section>
+  <section class="section -b -horizon">
+    <div class="section__horizon">
+      <div class="section__horizon-block"><span>HORIZONTAL 1</span></div>
+      <div class="section__horizon-block"><span>HORIZONTAL 2</span></div>
+      <div class="section__horizon-block"><span>HORIZONTAL 3</span></div>
+      <div class="section__horizon-block"><span>HORIZONTAL 4</span></div>
+      <div class="section__horizon-block">
+        <div>🏄 OH YA BABY 🏄</div>
+      </div>
+    </div>
+  </section>
+  <section class="section -c">
+    <div class="section__footertext">
+      ES Design Loves Egg<br>
+      <a href="https://e-s.tw">Made by ES Design</a>
+    </div>
+  </section>
+
+  <!-- content end -->
+
+  <!-- bootstrap.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+  <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 引入 gsap -->
+  <script src="../gsap/gsap.js"></script>
+  <script src="../gsap/ScrollTrigger.js"></script>
+  <script src="../gsap/TextPlugin.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js'></script>
+  <script>
+    gsap.registerPlugin(TextPlugin);
+
+    let scrollDownText = gsap.fromTo('.scrollDown', {
+      duration: 2,
+      text: 'Scroll Down <i class="fa-regular fa-hand-point-down handdown"></i>',
+      // ease: "circ.inOut",
+    }, {
+      ease: "power1.out",
+      y: 25,
+      repeat: 5,
+      repeatDelay: 0.3,
+    });
+
+    function getProgress(element) {
+      var rect = element.getBoundingClientRect();
+      var html = document.documentElement;
+      let progress = - (rect.top / (element.clientHeight - window.innerHeight))
+      if (progress <= 0) {
+        progress = 0
+      } else if (progress >= 1) {
+        progress = 1
+      }
+      return progress
+    }
+
+    document.querySelectorAll('.section.-horizon').forEach((horizon) => {
+      window.addEventListener('scroll', () => {
+        horizon.children[0].scrollLeft = getProgress(horizon) * window.innerWidth * 4;
+      })
+    })
+  </script>
+</body>
+
+</html>
