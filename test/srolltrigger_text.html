@@ -10,7 +10,7 @@
   <!-- swiper css -->
   <link href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css' rel='stylesheet' />
   <!-- style.css -->
-  <link href="./style.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
   <!-- font-awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
   <!-- google font -->
@@ -30,6 +30,43 @@
       scrollbar-width: none;
       /* Firefox */
       font-family: "Press Start 2P"
+    }
+
+    .headerCover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #222222;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+    }
+
+    .welcome {
+      font-size: 50px;
+      color: #dabea7;
+      margin-bottom: 10px;
+    }
+
+    .loadingBar {
+      position: relative;
+      margin-top: 20px;
+      width: 100vw;
+      height: 1px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .loadingValue {
+      position: absolute;
+      background-color: #dbc5a4;
+      width: 0;
+      height: 3px;
     }
 
     html::-webkit-scrollbar {
@@ -97,7 +134,7 @@
     }
 
     .section__horizon>div {
-      width: 99vw;
+      width: 100vw;
       flex: 0 0 auto;
       left: 0;
       position: sticky;
@@ -156,15 +193,20 @@
       flex-direction: column;
       gap: 0.5rem;
     }
-
-    /*# sourceMappingURL=style.css.map */
   </style>
 </head>
 
 <body>
+  <!-- enter animation start-->
+  <!-- <section class="headerCover">
+    <section class="welcome" id="welcome">Welcome</section>
+    <section class="loadingBar">
+      <section class="loadingValue"></section>
+    </section>
+  </section> -->
+  <!-- enter animation end -->
 
   <!-- content start -->
-
   <section class="section -a">
     <div class="section__entrytext">
       <h1 class="scrollDown mb-5"></h1>
@@ -188,7 +230,9 @@
       <a href="https://e-s.tw">Made by ES Design</a>
     </div>
   </section>
-
+  <div class="progressBar">
+    <div class="progressValue"></div>
+  </div>
   <!-- content end -->
 
   <!-- bootstrap.js -->
@@ -201,10 +245,20 @@
   <script src="../gsap/TextPlugin.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js'></script>
   <script>
+
+    // header cover: website enter animation
+    // const loadingtl = gsap.timeline();
+
+    // loadingtl
+    //   .to(".loadingValue", 3, { width: "100%" })
+    //   .to(".loadingBar", 0.1, { display: 'none' })
+    //   .to(".welcome", 0.1, { display: 'none' })
+    //   .to(".headerCover", 0.5, { height: 0 })
+
     gsap.registerPlugin(TextPlugin);
 
     let scrollDownText = gsap.fromTo('.scrollDown', {
-      duration: 2,
+      duration: 3,
       text: 'Scroll Down <i class="fa-regular fa-hand-point-down handdown"></i>',
       // ease: "circ.inOut",
     }, {
@@ -231,6 +285,18 @@
         horizon.children[0].scrollLeft = getProgress(horizon) * window.innerWidth * 4;
       })
     })
+
+    const progress = gsap.timeline();
+    progress.to(".progressValue", { width: '100%' })
+
+    ScrollTrigger.create({
+      animation: progress,
+      trigger: ".banner",
+      endTrigger: ".footer",
+      start: "top top",
+      end: "top bottom",
+      scrub: 1,
+    });
   </script>
 </body>
 
