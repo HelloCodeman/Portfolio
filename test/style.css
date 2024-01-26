@@ -6,7 +6,6 @@
 
   body {
     min-height: 100vh;
-    font-family: "";
     font-weight: 140;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -15,7 +14,7 @@
     font-family: "Press Start 2P"
   }
 
-  body::-webkit-scrollbar {
+  html::-webkit-scrollbar {
     display: none;
   }
 
