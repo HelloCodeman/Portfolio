@@ -198,12 +198,12 @@
 
 <body>
   <!-- enter animation start-->
-  <!-- <section class="headerCover">
+  <section class="headerCover">
     <section class="welcome" id="welcome">Welcome</section>
     <section class="loadingBar">
       <section class="loadingValue"></section>
     </section>
-  </section> -->
+  </section>
   <!-- enter animation end -->
 
   <!-- content start -->
@@ -247,24 +247,24 @@
   <script>
 
     // header cover: website enter animation
-    // const loadingtl = gsap.timeline();
+    const loadingtl = gsap.timeline();
 
-    // loadingtl
-    //   .to(".loadingValue", 3, { width: "100%" })
-    //   .to(".loadingBar", 0.1, { display: 'none' })
-    //   .to(".welcome", 0.1, { display: 'none' })
-    //   .to(".headerCover", 0.5, { height: 0 })
+    loadingtl
+      .to(".loadingValue", 2, { width: "100%" })
+      .to(".loadingBar", 0.1, { display: 'none' })
+      .to(".welcome", 0.1, { display: 'none' })
+      .to(".headerCover", 0.5, { height: 0 })
 
     gsap.registerPlugin(TextPlugin);
 
     let scrollDownText = gsap.fromTo('.scrollDown', {
-      duration: 3,
+      duration: 5,
       text: 'Scroll Down <i class="fa-regular fa-hand-point-down handdown"></i>',
       // ease: "circ.inOut",
     }, {
       ease: "power1.out",
       y: 25,
-      repeat: 4,
+      repeat: 5,
       repeatDelay: 0.3,
     });
 
