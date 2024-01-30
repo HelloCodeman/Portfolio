@@ -55,4 +55,14 @@
     })
   });
 
+  // loading animation w/ GSAP
+
+  const loadingtl = gsap.timeline();
+
+  loadingtl
+    .to(".loadingValue", 2, { width: "100%" })
+    .to(".loadingBar", 0, { display: 'none' })
+    .to(".welcome", 0, { display: 'none' })
+    .to(".openingCover", 0.5, { height: 0 })
+
 </script>
