@@ -21,8 +21,7 @@ body {
 }
 
 .welcome {
-  font-size: 180px;
-  color: #dabea7;
+  margin-bottom: 30px;
 }
 
 .loadingBar {

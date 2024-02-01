@@ -17,7 +17,7 @@
 <body>
   <!-- opening animation start-->
   <section class="openingCover">
-    <section class="welcome"><img src="./img/welcome2_animated.svg" alt=""></section>
+    <section class="welcome"><img src="./img/welcome4_animated.svg"></section>
     <section class="loadingBar">
       <section class="loadingValue"></section>
     </section>
@@ -135,7 +135,7 @@
     const loadingtl = gsap.timeline();
 
     loadingtl
-      .to(".loadingValue", 3, { width: "100%" })
+      .to(".loadingValue", 2.8, { width: "100%" })
       .to(".loadingBar", 0, { display: 'none' })
       .to(".welcome", 0, { display: 'none' })
       .to(".openingCover", 0.5, { height: 0 })
