@@ -3,6 +3,7 @@ body {
   font-weight: 140;
   font-family: 'Acme', sans-serif;
   background-color: #eee;
+  cursor: none;
 }
 
 .openingCover {
@@ -20,15 +21,13 @@ body {
 }
 
 .welcome {
-  font-size: 80px;
+  font-size: 180px;
   color: #dabea7;
-  margin-bottom: 10px;
-  font-family: 'Acme', sans-serif;
 }
 
 .loadingBar {
   position: relative;
-  margin-top: 20px;
+  /* margin-top: 10px; */
   width: 100vw;
   height: 1px;
   border-radius: 5px;
@@ -38,7 +37,7 @@ body {
 
 .loadingValue {
   position: absolute;
-  background-color: #dbc5a4;
+  background-color: #dbdbdb;
   width: 0;
   height: 3px;
 }
@@ -320,4 +319,13 @@ dotlottie-player {
   opacity: 0.5;
   z-index: -1;
   /* 設置為負數確保在其他内容之後 */
+}
+
+#myCursor {
+  /* border-radius: 50%; */
+  position: absolute;
+  /* box-shadow: 0px 0px 3px 3px #dabea7; */
+  /* box-sizing: border-box; */
+  z-index: 2;
+  pointer-events: none;
 }
