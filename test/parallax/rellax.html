@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax w/ Rellax</title>
+  <!-- bootstrap.css -->
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' rel='stylesheet' />
+  <!-- font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <!-- swiper css -->
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css' rel='stylesheet' />
+  <!-- style.css -->
+  <link href="./style.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Acme';
+      height: 100vh;
+      font-weight: 140;
+    }
+
+    dotlottie-player {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* opacity: 0.5; */
+      z-index: -1;
+      /* 設置為負數確保在其他内容之後 */
+    }
+
+    .dotlottie-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .main {
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      height: 200vh;
+    }
+
+    .timeline-block {
+      width: 50%;
+    }
+
+    .fox {
+      transform: translateX(60%);
+    }
+
+    .goat {
+      transform: translateX(30%);
+    }
+
+    .walrus {
+      transform: translateX(50%);
+    }
+
+    .rabbit {
+      transform: translateX(20%);
+    }
+
+    .turtle {
+      transform: translateX(66%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- rellax start -->
+  <div class="main">
+    <dotlottie-player src="https://lottie.host/021bd8a2-017f-4785-97f0-8427adca4e23/Kh3tdWk93g.json"
+      background="transparent" speed="1" style="width: 1000px; height: 1000px;" loop autoplay>
+    </dotlottie-player>
+    <div class="container">
+      <div class="rellax" data-rellax-speed="-7">
+        <div class="fox">
+          <img src="../img/019fox.jpg" style="scale: 0.1">
+        </div>
+      </div>
+      <div class="rellax" data-rellax-speed="4">
+        <div class="goat">
+          <img src="../img/012goat.jpg" style="scale: 0.2">
+        </div>
+      </div>
+      <div class="rellax" data-rellax-speed="3">
+        <div class="walrus">
+          <img src="../img/011walrus.jpg" style="scale: 0.4">
+        </div>
+      </div>
+      <div class="rellax" data-rellax-speed="7">
+        <div class="rabbit">
+          <img src="../img/029rabbit.jpg" style="scale: 0.3">
+        </div>
+      </div>
+      <div class="rellax" data-rellax-speed="9">
+        <div class="turtle">
+          <img src="../img/05turtle.jpg" style="scale: 0.5">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- rellax end -->
+
+  <!-- bootstrap.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+  <!-- jQuery.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- rellax.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js'></script>
+  <script>
+    var rellax = new Rellax('.rellax');
+  </script>
+</body>
+
+</html>
