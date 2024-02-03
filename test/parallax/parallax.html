@@ -48,7 +48,6 @@
     h1 {
       text-align: center;
       font-weight: 1000;
-      /* scale: 1.5; */
       color: #777;
     }
 
@@ -155,7 +154,6 @@
     <section class="section opening">
       <div class="section__entrytext">
         <h1 class="scrollDown mb-5"></h1>
-        <!-- <img src="../../img/me2.png" id="me" style="height: 75%;"> -->
       </div>
     </section>
     <section class="section timeline">
@@ -181,19 +179,24 @@
         <div class="timeline-block timeline-block-right">
           <div class="timeline-content work">
             <h3>Work 工作</h3>
-            <p>畢業後第一份工作是在外商遊戲公司當文字客服，隨後又以技術支援客服的角色到資訊業打滾了數年，看著工程師同事都比我早下班，待遇還比我好，為日後轉職工程師種下了一個種子。</p>
+            <p>
+              畢業後第一份工作是在外商遊戲公司當文字客服，隨後又以技術支援客服的角色到資訊業打滾了數年，看著工程師同事都比我早下班，待遇還比我好，為日後轉職工程師種下了一個種子。
+            </p>
           </div>
         </div>
         <div class="timeline-block timeline-block-left">
           <div class="timeline-content covid">
             <h3 class="text-end">Covid-19 疫情&nbsp;&nbsp;</h3>
-            <p>疫情來之前剛好離職，暫時沒有工作的時間，在家的時間利用投資賺取生活費，後來被朋友邀請一起操作，兩年過去的同時也體認到實體工作在疫情期間所受到的衝擊。</p>
+            <p>
+              疫情來之前剛好離職，暫時沒有工作的時間，在家的時間利用投資賺取生活費，後來被朋友邀請一起操作，兩年過去的同時也體認到實體工作在疫情期間所受到的衝擊。
+            </p>
           </div>
         </div>
         <div class="timeline-block timeline-block-right">
           <div class="timeline-content tillnow">
             <h3>Till now 後疫情至今</h3>
-            <p>疫情舒緩後找了一個資訊業的技術支援工作，本想好好找份工作待著，沒想到做了半年，公司又因為某國際基金倒閉，我拿到了一份「非自願離職書」- 被資遣，剛好有了報名政府職訓課程的敲門磚。至此，命運的齒輪開始轉動...
+            <p>
+              疫情舒緩後找了一個資訊業的技術支援工作，本想好好找份工作待著，沒想到做了半年，公司又因為某國際基金倒閉，我拿到了一份「非自願離職書」- 被資遣，剛好有了報名政府職訓課程的敲門磚。至此，命運的齒輪開始轉動...
             </p>
           </div>
         </div>
@@ -243,6 +246,7 @@
   <script>
 
     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(TextPlugin);
 
     // header cover: website opening animation
     const loadingtl = gsap.timeline();
@@ -252,8 +256,6 @@
       .to(".loadingBar", 0, { display: 'none' })
       .to(".welcome", 0, { display: 'none' })
       .to(".openingCover", 0.5, { height: 0 })
-
-    gsap.registerPlugin(TextPlugin);
 
     let scrollDownText = gsap.fromTo('.scrollDown', {
       duration: 5,
@@ -265,6 +267,26 @@
       repeat: -1,
       repeatDelay: 0.5,
     });
+
+    const tweenscrollDown = gsap.to('.scrollDown', {
+      scrollTrigger: {
+        trigger: '.scrollDown',
+        start: 'top 90%',
+        end: 'top 60%',
+        toggleActions: 'none play none reset',
+        /*
+        值可為 play,pause,resume,reverse,restart,reset,complete,none
+        onEnter => 第一次綠碰綠 scroller-start 碰到 start
+        onLeave => 第一次紅碰紅 scroller-end 碰到 end
+        onEnterBack => 往回時紅碰紅 scroller-end 碰到 end
+        onEnterBack => 往回時綠碰綠 scroller-start 碰到 start
+        */
+        markers: true,
+      },
+      duration: 0.3,
+      opacity: 0,
+      ease: 'power2.in'
+    })
 
     const tweenborn = gsap.to('.born', {
       scrollTrigger: {
@@ -279,7 +301,7 @@
         onEnterBack => 往回時紅碰紅 scroller-end 碰到 end
         onEnterBack => 往回時綠碰綠 scroller-start 碰到 start
         */
-        markers: true,
+        // markers: true,
       },
       x: '0%',
       duration: 1.5,
@@ -292,7 +314,7 @@
         start: 'top 90%',
         end: 'bottom 20%',
         toggleActions: 'play none none reset',
-        markers: true,
+        // markers: true,
       },
       x: '0%',
       duration: 1.5,
@@ -305,7 +327,7 @@
         start: 'top 90%',
         end: 'bottom 20%',
         toggleActions: 'play none none reset',
-        markers: true,
+        // markers: true,
       },
       x: '0%',
       duration: 1.5,
@@ -318,7 +340,7 @@
         start: 'top 90%',
         end: 'bottom 20%',
         toggleActions: 'play none none reset',
-        markers: true,
+        // markers: true,
       },
       x: '0%',
       duration: 1.5,
@@ -331,7 +353,7 @@
         start: 'top 90%',
         end: 'bottom 20%',
         toggleActions: 'play none none reset',
-        markers: true,
+        // markers: true,
       },
       x: '0%',
       duration: 1.5,
