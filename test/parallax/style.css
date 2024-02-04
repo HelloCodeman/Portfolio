@@ -52,7 +52,6 @@ html::-webkit-scrollbar {
 
 .opening {
   font-size: 6vw;
-  height: 100vh;
 }
 
 .me {
@@ -62,6 +61,7 @@ html::-webkit-scrollbar {
 
 .timeline {
   margin-top: 2vh;
+  height: 150vh;
 }
 
 .section.-horizon {
