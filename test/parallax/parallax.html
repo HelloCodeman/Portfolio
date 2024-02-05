@@ -144,12 +144,12 @@
 <body>
 
   <!-- enter animation start-->
-  <!-- <section class="openingCover">
-    <section class="welcome">Welcome</section>
+  <section class="openingCover">
+    <section class="welcome" style="letter-spacing: 5px;">Welcome!</section>
     <section class="loadingBar">
       <section class="loadingValue"></section>
     </section>
-  </section> -->
+  </section>
   <!-- enter animation end -->
 
   <!-- content start -->
@@ -228,18 +228,20 @@
         <span>未來展望</span>
       </div>
       <div class="section__horizon-block">
-        <div>
-          Let’s&nbsp;&nbsp;see&nbsp;&nbsp;what&nbsp;&nbsp;will&nbsp;&nbsp;happen&nbsp;&nbsp;in&nbsp;&nbsp;the&nbsp;&nbsp;future.
+        <div class="section__footertext text-center">
+          Let’s&nbsp;&nbsp;see&nbsp;&nbsp;what&nbsp;&nbsp;will&nbsp;&nbsp;happen&nbsp;&nbsp;in&nbsp;&nbsp;the&nbsp;&nbsp;future.<br>
+          Thanks for watching.<br>
+          <a href="https://wda.mackliu.com/s1120419/" style="scale: 0.5;">My Collections</a>
         </div>
       </div>
     </div>
   </section>
-  <section class="section footer">
+  <!-- <section class="section footer">
     <div class="section__footertext">
       Thanks for watching.<br>
       <a href="https://wda.mackliu.com/s1120419/">My Collections</a>
     </div>
-  </section>
+  </section> -->
   <!-- horizon/content end -->
 
   <!-- progrss bar start -->
@@ -405,6 +407,25 @@
       end: "top bottom",
       scrub: 1,
     });
+
+    const tl = gsap.timeline({
+      // repeat: -1,
+      // repeatDelay: 0.3,
+    })
+
+    // tl.from('.item', {
+    //   y: 60,
+    //   rotationX: -90,
+    //   autoAlpha: 0, // 元素會變得完全透明，使其在畫面上不可見
+    //   stagger: 1.2, // 每個 .item 元素動畫將以 1.2 秒的間隔依次執行
+    // })
+
+    //   .to('.item', {
+    //     y: -60,
+    //     // rotationX: 90,
+    //     autoAlpha: 1,
+    //     stagger: 1.2,
+    //   }, 1.2) // 第三參數只設定動畫在時間軸的位置，表示把動畫放在時間軸1.2秒的位置
   </script>
 </body>
 
