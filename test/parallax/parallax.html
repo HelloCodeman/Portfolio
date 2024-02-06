@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parallax</title>
   <!-- bootstrap.css -->
-  <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' rel='stylesheet' />
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' rel='stylesheet'D/>
   <!-- font-awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <!-- swiper css -->
-  <link href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css' rel='stylesheet' />
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css' rel='stylesheet'/>
   <!-- style.css -->
   <link href="./style.css" rel="stylesheet">
   <style>
@@ -229,9 +229,11 @@
       </div>
       <div class="section__horizon-block">
         <div class="section__footertext text-center">
-          Let’s&nbsp;&nbsp;see&nbsp;&nbsp;what&nbsp;&nbsp;will&nbsp;&nbsp;happen&nbsp;&nbsp;in&nbsp;&nbsp;the&nbsp;&nbsp;future.<br>
-          Thanks for watching.<br>
-          <a href="https://wda.mackliu.com/s1120419/" style="scale: 0.5;">My Collections</a>
+          <p class="footer1">
+            Let’s&nbsp;&nbsp;see&nbsp;&nbsp;what&nbsp;&nbsp;will&nbsp;&nbsp;happen&nbsp;&nbsp;in&nbsp;&nbsp;the&nbsp;&nbsp;future.<br>
+          </p>
+          <p class="footer2">Thanks for watching.</p>
+          <a href="https://wda.mackliu.com/s1120419/" style="scale: 0.5" class="footer3">My Collections</a>
         </div>
       </div>
     </div>
@@ -252,13 +254,15 @@
 
   <!-- bootstrap.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
-  <!-- jQuery -->
+  <!-- jQuery.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
-  <!-- 引入 gsap -->
+  <!-- gsap.js -->
   <script src="../../gsap/gsap.js"></script>
   <script src="../../gsap/ScrollTrigger.js"></script>
   <script src="../../gsap/TextPlugin.js"></script>
+  <!-- swiper.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js'></script>
+  <!-- dotlottie.mjs -->
   <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
   <script>
 
@@ -274,7 +278,7 @@
       .to(".welcome", 0, { display: 'none' })
       .to(".openingCover", 0.5, { height: 0 })
 
-    let scrollDownText = gsap.fromTo('.scrollDown', {
+    const scrollDownText = gsap.fromTo('.scrollDown', {
       duration: 5,
       text: 'Scroll Down <i class="fa-regular fa-hand-point-down handdown"></i>',
       // ease: "circ.inOut",
@@ -311,14 +315,6 @@
         start: 'top 90%',
         end: 'bottom 20%',
         toggleActions: 'play none none reset',
-        /*
-        值可為 play,pause,resume,reverse,restart,reset,complete,none
-        onEnter => 第一次綠碰綠 scroller-start 碰到 start
-        onLeave => 第一次紅碰紅 scroller-end 碰到 end
-        onEnterBack => 往回時紅碰紅 scroller-end 碰到 end
-        onEnterBack => 往回時綠碰綠 scroller-start 碰到 start
-        */
-        // markers: true,
       },
       x: '0%',
       duration: 1.5,
@@ -377,6 +373,19 @@
       ease: 'power2.out'
     })
 
+    const tweenfooter = gsap.to('.footer', {
+      scrollTrigger: {
+        trigger: '.footer',
+        start: 'top 90%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reset',
+        // markers: true,
+      },
+      x: '0%',
+      duration: 1.5,
+      ease: 'power2.out'
+    })
+
 
     function getProgress(element) {
       var rect = element.getBoundingClientRect();
@@ -408,24 +417,24 @@
       scrub: 1,
     });
 
-    const tl = gsap.timeline({
+    const footertl = gsap.timeline({
       // repeat: -1,
       // repeatDelay: 0.3,
     })
 
-    // tl.from('.item', {
-    //   y: 60,
-    //   rotationX: -90,
-    //   autoAlpha: 0, // 元素會變得完全透明，使其在畫面上不可見
-    //   stagger: 1.2, // 每個 .item 元素動畫將以 1.2 秒的間隔依次執行
-    // })
+    footertl.from('.footer', {
+      y: 60,
+      rotationX: -90,
+      autoAlpha: 0, // 元素會變得完全透明，使其在畫面上不可見
+      stagger: 1.2, // 每個 .item 元素動畫將以 1.2 秒的間隔依次執行
+    })
 
-    //   .to('.item', {
-    //     y: -60,
-    //     // rotationX: 90,
-    //     autoAlpha: 1,
-    //     stagger: 1.2,
-    //   }, 1.2) // 第三參數只設定動畫在時間軸的位置，表示把動畫放在時間軸1.2秒的位置
+      .to('.footer', {
+        y: -60,
+        // rotationX: 90,
+        autoAlpha: 1,
+        stagger: 1.2,
+      }, 1.2) // 第三參數只設定動畫在時間軸的位置，表示把動畫放在時間軸1.2秒的位置
   </script>
 </body>
 
