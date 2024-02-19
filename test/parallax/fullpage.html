@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.css'
+    integrity='sha512-AIwt5sjXSKDo4t0KSQ/eAuy43kQMc1hYtIKLxaFrHd26nQFzMo1FJdBIickVyGXnhm2xB2OOYBqMBgu3dBU4KA=='
+    crossorigin='anonymous' />
+  <style>
+    #sec1slide1 {
+      background-color: #ED1234;
+      background-image: url(https://www.bhmpics.com/walls/3d_low_poly_abstract-wide.jpg);
+      background-size: cover;
+      background-position: center;
+      /*   padding: 50px; */
+      text-align: center;
+      color: #fff;
+    }
+
+    #sec1slide2 {
+      background-color: #12EDCC;
+      background-image: url(https://s-media-cache-ak0.pinimg.com/originals/f5/51/5e/f5515ebe09ffd16984bb095d7917cbd0.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    #sec1slide3 {
+      background-color: #EE12CC;
+      background-image: url(https://s-media-cache-ak0.pinimg.com/originals/cb/82/75/cb8275fd84f67441ad7e21c81197d16d.png);
+      background-size: cover;
+      background-position: center;
+    }
+
+    #sec2 {
+      background-color: #CCC;
+    }
+
+    #sec4 {
+      background-color: #666;
+    }
+
+    #fp-nav ul li a span {
+      background-color: #ED1234;
+    }
+
+    .fp-slidesNav ul li a span {
+      background-color: #fff;
+    }
+
+    #logo {
+      width: 100px;
+    }
+
+    .slide {
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="fullpage">
+    <div class="section" id="sec1">
+      <div class="slide" id="sec1slide1">
+        <!--       <img id="logo" src="http://www.webdeveloper.com/forum/attachment.php?attachmentid=14980&d=1346386598" /> -->
+        <h1 class="glyphicon glyphicon-eye-open"></h1>
+        <h1>Full Page Starter Kit</h1>
+        <p>A Starter Kit of fullpage.js library</p>
+      </div>
+      <div class="slide" id="sec1slide2">
+        <h1>Slide 2</h1>
+      </div>
+      <div class="slide" id="sec1slide3">
+        <h1>Slide3</h1>
+      </div>
+    </div>
+    <div class="section" id="sec2">section2</div>
+    <div class="section" id="sec3">
+      <div class="slide" id="sec3slide1">slide1</div>
+      <div class="slide" id="sec3slide2">slide2</div>
+      <div class="slide" id="sec3slide3">slide3</div>
+    </div>
+    <div class="section" id="sec4">section4</div>
+  </div>
+  <!-- jQuery.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+  <!-- rellax.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js'></script>
+  <!-- fullpage.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.extensions.min.js'></script>
+
+  <script>
+$(document).ready(function() {
+    $('#fullpage').fullpage({
+      navigation : true,
+      navigationPosition : 'right',
+      navigationTooltips: ['home', 'about us', 'our works', 'contact us'],
+      slidesNavigation : true,
+      slidesNavPosition : 'bottom',
+      controlArrows: false,
+    });
+});
+  </script>
+</body>
+
+</html>
