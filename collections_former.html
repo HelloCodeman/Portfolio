@@ -11,6 +11,11 @@
     <link href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css' rel='stylesheet'>
 </head>
 <style>
+    body,
+    html {
+        cursor: none;
+    }
+
     body {
         height: 100vh;
         background-color: #171616;
@@ -117,6 +122,29 @@
     a {
         border: 2px;
     }
+
+    #myCursor {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0px 0px 3px 3px #dabea7;
+        box-sizing: border-box;
+        z-index: 3;
+    }
+
+    #myCircle {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        position: absolute;
+        z-index: 3;
+    }
+
+    #myCursor,
+    #myCircle {
+        pointer-events: none;
+    }
 </style>
 
 <body>
@@ -128,6 +156,10 @@
                     <a href="./ishot/index.php" type="button" class="btn btn-outline-dark website text-nowrap"
                         style="font-weight: bolder;"><i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp;一頁式網站</a>
                 </div>
+                <div class="col">
+                    <a href="./test/parallax/parallax.html" type="button" class="btn btn-outline-dark website text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp;個人網站(unfinished)</a>
+                </div>
             </div>
             <hr>
             <div class="row">
@@ -138,9 +170,8 @@
                             class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;超市特賣</a>
                 </div>
                 <div class="col">
-                    <a href="./front-end/departure_animation.html" type="button"
-                        class="btn btn-outline-dark animation text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;飛機起飛動畫</a>
+                    <a href="./front-end/cafe.html" type="button" class="btn btn-outline-dark cafe text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-brands fa-css3-alt"></i>&nbsp;&nbsp;Cafe點餐</a>
                 </div>
                 <div class="col">
                     <a href="./front-end/classindex.html" type="button"
@@ -157,19 +188,16 @@
             <div class="row">
                 <h2 class="mb-3">Back-end</h2>
                 <div class="col">
-                    <a href="./back-end/vote/index.php" type="button"
-                        class="btn btn-outline-dark vote text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
+                    <a href="./back-end/vote/index.php" type="button" class="btn btn-outline-dark vote text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;投票系統</a>
                 </div>
                 <div class="col">
-                    <a href="./back-end/calendar.php" type="button"
-                        class="btn btn-outline-dark calendar text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
+                    <a href="./back-end/calendar.php" type="button" class="btn btn-outline-dark calendar text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-brands fa-php"></i>&nbsp;&nbsp;萬年曆</a>
                 </div>
                 <div class="col">
-                    <a href="./back-end/ajax/index.html" type="button"
-                        class="btn btn-outline-dark school text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
+                    <a href="./back-end/ajax/index.html" type="button" class="btn btn-outline-dark school text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;學校學生資料庫</a>
                 </div>
             </div>
             <hr>
@@ -180,9 +208,8 @@
                         style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;宣傳海報</a>
                 </div>
                 <div class="col">
-                    <a href="./img/Calendar2024.jpg" type="button"
-                        class="btn btn-outline-dark calendar2024 text-nowrap" style="font-weight: bolder;"><i
-                            class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
+                    <a href="./img/Calendar2024.jpg" type="button" class="btn btn-outline-dark calendar2024 text-nowrap"
+                        style="font-weight: bolder;"><i class="fa-regular fa-image"></i>&nbsp;&nbsp;龍年年曆</a>
                 </div>
                 <div class="col">
                     <a href="./design/animals.html" type="button" class="btn btn-outline-dark animals text-nowrap"
@@ -238,6 +265,9 @@
                 </div>
             </div>
         </div>
+
+        <div id="myCursor"></div>
+        <img src="./img/star.png" id="myCircle">
         <!-- jQuery -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
         <!-- bootstrap -->
@@ -301,7 +331,7 @@
             // function mouseEvent(class選擇器, 要隱藏的選擇器, 要顯示的選擇器)
             mouseEvent('.website', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
             mouseEvent('.supermarket', '.php, .mysql, .ps, .ai', '.html, .css, .js, .jq');
-            mouseEvent('.animation', '.php, .mysql, .ps, .ai, .jq', '.html, .css, .js');
+            mouseEvent('.cafe', '.php, .mysql, .ps, .ai', '.html, .css, .js, .jq');
             mouseEvent('.classindex', '.php, .mysql, .ps, .ai, .jq, .js', '.html, .css');
             mouseEvent('.calculator', '.php, .mysql, .ps, .ai', '.html, .css, .jq, .js');
             mouseEvent('.vote', '.ps, .ai', '.html, .css, .js, .jq, .php, .mysql');
@@ -310,6 +340,37 @@
             mouseEvent('.travelpost', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
             mouseEvent('.calendar2024', '.php, .mysql, .html, .css, .jq, .js, .ai', '.ps');
             mouseEvent('.animals', '.php, .mysql, .ps', '.html, .css, .ai, .jq, .js');
+
+            // 追蹤滑鼠
+            let cursor = document.getElementById("myCursor");
+            let circle = document.getElementById("myCircle");
+            let container = document.querySelector(".container");
+
+            window.addEventListener("mousemove", function (e) {  // 當在瀏覽器中移動滑鼠時觸發，將執行指定的函數(e)
+                let x = e.clientX;  // 獲取了滑鼠在瀏覽器視窗中的X座標，並儲存在變數 x 中
+                let y = e.clientY;  // 獲取了滑鼠在瀏覽器視窗中的Y座標，並儲存在變數 y 中
+                cursor.style.left = x - 15 + "px";  // 因為.div區塊為30px 座標減半才會讓cursor觸發點在中間
+                cursor.style.top = y - 15 + "px";
+
+                setTimeout(() => {
+                    circle.style.left = x - 10 + "px";
+                    circle.style.top = y - 10 + "px";
+                }, 100); // 讓物件延遲0.1秒 產生跟隨效果
+            })
+
+            container.addEventListener("mouseenter", function () {
+                cursor.style.backgroundColor = "#171616";  // 修改滑鼠樣式的背景顏色為黑色
+                cursor.style.width = "20px";  // 縮小鼠標的寬
+                cursor.style.height = "20px";  // 縮小鼠標的高
+                circle.style.display = "none";  // 將星星隱藏
+            });
+
+            container.addEventListener("mouseleave", function () {
+                cursor.style.backgroundColor = "none";  // 修改滑鼠樣式的背景顏色回原始顏色
+                cursor.style.width = "30px";  // 回復鼠標的寬 不能用initial
+                cursor.style.height = "30px"; // 回復鼠標的高 不能用initial
+                circle.style.display = "initial";  // 將星星恢復顯示
+            });
 
         </script>
 </body>
