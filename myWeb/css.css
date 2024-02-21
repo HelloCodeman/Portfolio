@@ -9,6 +9,16 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Acme';
+  height: 100vh;
+  font-weight: 140;
+  /* -ms-overflow-style: none; */
+  /* IE and Edge */
+  /* scrollbar-width: none; */
+  /* Firefox */
+}
+
 .openingCover {
   display: flex;
   justify-content: center;
@@ -24,9 +34,10 @@ html {
 }
 
 .welcome {
-  font-size: 50px;
-  color: #ffffff;
-  margin-bottom: 10px;
+  font-size: 90px;
+  color: #ddd;
+  margin-bottom: 8px;
+  /* font-style: italic; */
 }
 
 .loadingBar {
@@ -41,7 +52,7 @@ html {
 
 .loadingValue {
   position: absolute;
-  background-color: #ffffff;
+  background-color: #ddd;
   width: 0;
   height: 3px;
 }
@@ -63,16 +74,6 @@ html::-webkit-scrollbar {
 .timeline {
   margin-top: 2vh;
   height: 150vh;
-}
-
-body {
-  font-family: 'Acme';
-  height: 100vh;
-  font-weight: 140;
-  /* -ms-overflow-style: none; */
-  /* IE and Edge */
-  /* scrollbar-width: none; */
-  /* Firefox */
 }
 
 nav {
@@ -102,17 +103,16 @@ dotlottie-player {
   transform: translate(-50%, -50%);
   /* opacity: 0.5; */
   z-index: -1;
-  /* 設置為負數確保在其他内容之後 */
 }
 
-.dotlottie-container {
+/* .dotlottie-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
-}
+} */
 
 h1 {
   text-align: center;
