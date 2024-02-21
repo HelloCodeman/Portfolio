@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>本日天氣預報</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <style>
+    body {
+      height: 100vh;
+    }
+
+    html::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container {
+      font-family: 'acme';
+      font-style: italic;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 900;
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="main">
+    <div class="container" style="scale: 0.9;font-size:large;">
+      <table class="display" id="myTable">
+        <h2>台灣各地天氣預報</h2>
+        <thead>
+          <tr>
+            <th width="10%" class="text-center">排序</th>
+            <th width="20%" class="text-center">地點</th>
+            <th width="15%" class="text-center">天氣狀態</th>
+            <th width="15%" class="text-center">降雨機率(%)</th>
+            <th width="15%" class="text-center">最低溫(攝氏度)</th>
+            <th width="15%" class="text-center">最高溫(攝氏度)</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./ignore/weather.js"></script>
+  <!-- datatable js -->
+  <script src="./css/jquery.dataTables.min.js"></script>
+  <!-- vanta.js -->
+  <script src="./css/three.r134.min.js"></script>
+  <script src="./css/vanta.clous.min.js"></script>
+  <script>
+
+    VANTA.CLOUDS({
+      el: "body",
+      // mouseControls: true,
+      minHeight: 957.00,
+      minWidth: 1920.00
+    })
+
+    $(document).ready(function () {
+      const myTable = $('#myTable');
+
+      $.ajax({
+        type: "get",
+        url: url,
+        // data: "data",
+        // dataType: "json",
+        success: function (res) {
+
+          // . [] ->let nowLocationName=value.locationName;
+          console.log('res', res);
+          // console.log('res.records', res.records);
+          // console.log('res["records"]', res['records']);
+          // console.log('res.records.datasetDescription', res.records.datasetDescription);
+          // console.log('nowLocation', nowLocation);
+          // console.log('res.records.location[0].weatherElement[4].time[0].parameter.parameterName', res.records.location[0].weatherElement[4].time[0].parameter.parameterName);
+          let nowLocation = res.records.location;
+          // let nowLocationWx = res.records.location[0].weatherElement[0].time[0].parameter.parameterValue;
+          // let nowLocationMaxT = res.records.location[0].weatherElement[4].time[0].parameter.parameterName;
+          // let nowLocationMinT = res.records.location[0].weatherElement[2].time[0].parameter.parameterName;
+
+          $.each(nowLocation, function (key, value) {
+            // console.log('key', key);
+            // console.log('value', value);
+            // console.log('value.locationName', value.locationName);
+            let nowID = key + 1;
+            let stringID = nowID.toString().padStart(2, "0");
+            let nowLocationName = value.locationName;
+            let nowLocationMinT = value.weatherElement[2].time[0].parameter.parameterName;
+            let nowLocationMaxT = value.weatherElement[4].time[0].parameter.parameterName;
+            let nowLocationWx = value.weatherElement[0].time[0].parameter.parameterValue;
+            let nowLocationPoP = value.weatherElement[1].time[0].parameter.parameterName;
+
+            let picID = nowLocationWx.toString().padStart(2, "0");
+
+            let content = `
+              <tr>
+                <td class="text-center">${stringID}</td>
+                <td class="text-center" style="font-weight:bolder;font-size:larger" >${nowLocationName}</td>
+                <td class="text-center">
+                <img src="https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/${picID}.svg" style="scale:0.7"></td>
+                <td class="text-center" style="font-size:22px">${nowLocationPoP}%</td>
+                <td class="text-center" style="font-size:22px">${nowLocationMinT}°</td>
+                <td class="text-center" style="font-size:22px">${nowLocationMaxT}°</td>
+              </tr>
+            `;
+
+            // console.log('nowLocationName', nowLocationName);
+            $('tbody').append(content);
+          })
+          // run datatable
+          myTable.DataTable();
+        }
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>
