@@ -251,6 +251,33 @@ h2 {
 }
 
 /* Timeline RWD */
+@media screen and (max-width: 1200px) {
+  .container:before {
+    left: 8px;
+    width: 2px;
+    height: 90vh;
+  }
+
+  .timeline-block {
+    width: 100%;
+    margin-bottom: 10px;
+    text-size-adjust: auto;
+  }
+
+  .timeline-block-right {
+    float: none;
+  }
+
+  .timeline-block-left {
+    float: none;
+    direction: ltr;
+  }
+
+  .courseContent>.skills {
+    scale: 0.8;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container:before {
     left: 8px;
