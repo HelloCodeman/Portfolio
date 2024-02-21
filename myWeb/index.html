@@ -55,7 +55,7 @@
     <br>
     <br>
     <br>
-    <h2 data-aos="zoom-in-right">人生歷程</h2>
+    <h2 data-aos="zoom-in-right" class="h2Tineline">人生歷程</h2>
     <div class="container">
       <div class="timeline-block timeline-block-right">
         <div class="timeline-content born">
@@ -108,7 +108,7 @@
     <br>
     <br>
     <br>
-    <h2 data-aos="zoom-in-right">進入職訓局後</h2>
+    <h2 data-aos="zoom-in-right" class="h2Skills">進入職訓局後</h2>
     <div class="skills">
       <div class="rellax" data-rellax-speed="-0.3">
         <div class="css">
@@ -116,7 +116,7 @@
         </div>
       </div>
       <div class="rellax text-center" data-rellax-speed="1.6">
-          <p class="getSkills" style="font-size: 80px;font-weight: 900;"></p>
+        <p class="getSkills" style="font-size: 80px;font-weight: 900;"></p>
       </div>
       <div class="rellax" data-rellax-speed="1">
         <div class="html">
@@ -148,17 +148,18 @@
           <i class="fi-brands-photoshop" style="font-size: 100px;font-weight: 900;"></i>
         </div>
       </div>
-      <div class="rellax" data-rellax-speed="4">
-        <div class="gsap">
-          <p style="font-size: 70px;font-weight: 900;font-style: italic;">GSAP</p>
-        </div>
-      </div>
-      <div class="rellax" data-rellax-speed="4">
-        <div class="bs5">
-          <p style="font-size: 50px;font-weight: 900;font-style: italic;">Bootstrap</p>
-        </div>
+    </div>
+    <div class="rellax" data-rellax-speed="4">
+      <div class="gsap">
+        <p style="font-size: 70px;font-weight: 900;font-style: italic;">GSAP</p>
       </div>
     </div>
+    <div class="rellax" data-rellax-speed="4">
+      <div class="bs5">
+        <p style="font-size: 50px;font-weight: 900;font-style: italic;">Bootstrap</p>
+      </div>
+    </div>
+  </div>
   </div>
   <!-- myCourse start -->
 
@@ -169,11 +170,44 @@
     <br>
     <br>
     <br>
-    <h2 data-aos="zoom-in-right">作品集</h2>
-    <div class=" rellax text-center" data-rellax-speed="0.42">
+    <h2 data-aos="zoom-in-right" class="h2Collections">作品集</h2>
+    <div class="rellax text-center" data-rellax-speed="0.42">
       <br>
-        <span class="myCollections" style="font-weight: 900;"></span>
+      <p class="myCollections" style="font-size:80px;font-weight: 900;padding: 0;"></p>
     </div>
+    <div class="d-flex justify-content-center rellax" data-rellax-speed="0.3">
+      <div class="card frontend" style="width: 25vw;" data-aos="fade-up-right" data-aos-delay="1000">
+        <div class="card-header" style="font-weight: 900;">
+          前端
+        </div>
+        <ul class="list-group list-group-flush">
+          <a href="../front-end/cafe.html" class="list-group-item">Cafe 點餐系統</a>
+          <a href="../front-end/weather.html" class="list-group-item">天氣預報 API</a>
+          <a href="../myWeb/index.html" class="list-group-item">個人網站</a>
+        </ul>
+      </div>
+      <div class="card backend" style="width: 25vw;" data-aos="fade-up" data-aos-delay="1300">
+        <div class="card-header" style="font-weight: 900;">
+          後端
+        </div>
+        <ul class="list-group list-group-flush">
+          <a href="../back-end/calendar.php" class="list-group-item">萬年曆</a>
+          <a href="../back-end/ajax/index.html" class="list-group-item">學校班級資料庫</a>
+          <a href="../ishot/index.php" class="list-group-item">全端風格網站</a>
+        </ul>
+      </div>
+      <div class="card design" style="width: 25vw;" data-aos="fade-up-left" data-aos-delay="1600">
+        <div class="card-header" style="font-weight: 900;">
+          設計
+        </div>
+        <ul class="list-group list-group-flush">
+          <a href="../design/animals.html" class="list-group-item">AI 製作 20 隻動物</a>
+          <a href="../img/Calendar2024.jpg" class="list-group-item">PS 製作龍年年曆</a>
+          <a href="../img/Travelpost.jpg" class="list-group-item">PS 製作旅遊 DM</a>
+        </ul>
+      </div>
+    </div>
+  </div>
   </div>
   <!-- myCollections start -->
 
@@ -214,11 +248,15 @@
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(TextPlugin);
     // 註冊 AOS
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      mirror: true,
+      easing: 'ease-out-quart',
+    });
     // 註冊 Rellax
-    var rellax = new Rellax('.rellax',{
+    var rellax = new Rellax('.rellax', {
       breakpoints: [576, 768, 1201],
-      
+
     });
 
     // header cover: website opening animation
@@ -349,18 +387,8 @@
         toggleActions: 'play none none reset',
         // markers: true,
       },
-      duration: 2.5,
-      text: `
-      <p style="font-size:80px">六個月的日子<br>我做出了這些</p><br>
-      <a style="background-color:#ddd;font-size:40px;border-radius:10px" href="../ishot/index.php" style="font-size:00px">前後端兼具網站</a><br>
-      <a style="background-color:#ddd;font-size:40px;border-radius:10px" href="../back-end/calendar.php" style="font0size:50px">萬年曆( PHP )</a><br>
-      <a style="background-color:#ddd;font-size:40px;border-radius:10px" href="../front-end/weather.html" style="fon0-size:50px">串接天氣 api</a><br>
-      <a style="background-color:#ddd;font-size:40px;border-radius:10px" href="#" style="font-size:50px">個人網站( You were here! )</a><br>
-      <br>
-      <a href='https://wda.mackliu.com/s1120419' style="font-size:35px">
-      看更多 <i class="fa-sharp fa-solid fa-hand-pointer fa-beat-fade fa-2xs"></i>
-      </a>
-      `,
+      duration: 2,
+      text: "六個月的日子<br>我做出了這些<br>",
       ease: "slow",
       repeat: 0
     });

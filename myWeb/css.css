@@ -228,6 +228,10 @@ h2 {
   transform: translateX(70%);
 }
 
+.card {
+  margin: 10px;
+}
+
 .entrytext {
   width: 100%;
   height: 100%;
@@ -252,6 +256,10 @@ h2 {
 
 /* Timeline RWD */
 @media screen and (max-width: 1200px) {
+  dotlottie-player {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
   .container:before {
     left: 8px;
     width: 2px;
@@ -261,7 +269,8 @@ h2 {
   .timeline-block {
     width: 100%;
     margin-bottom: 10px;
-    text-size-adjust: auto;
+    margin-top: 5vh;
+    font-size: large;
   }
 
   .timeline-block-right {
@@ -276,9 +285,24 @@ h2 {
   .courseContent>.skills {
     scale: 0.8;
   }
+
+  .h2Timeline,
+  .h2Skills,
+  .h2Collections {
+    scale: 0.8;
+  }
+
+  .myCollections,
+  .getSkills {
+    transform: scale(0.8);
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
+  dotlottie-player {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
   .container:before {
     left: 8px;
     width: 2px;
@@ -288,7 +312,8 @@ h2 {
   .timeline-block {
     width: 100%;
     margin-bottom: 10px;
-    text-size-adjust: auto;
+    margin-top: 3vh;
+    font-size: large;
   }
 
   .timeline-block-right {
@@ -298,6 +323,49 @@ h2 {
   .timeline-block-left {
     float: none;
     direction: ltr;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  dotlottie-player {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  .container:before {
+    left: 8px;
+    width: 2px;
+    height: 90vh;
+  }
+
+  .timeline-block {
+    width: 100%;
+    margin-top: 2vh;
+    font-size: initial;
+  }
+
+  .timeline-block-right {
+    float: none;
+  }
+
+  .timeline-block-left {
+    float: none;
+    direction: ltr;
+  }
+
+  .h2Timeline,
+  .h2Skills,
+  .h2Collections {
+    scale: 0.5;
+  }
+
+  .myCollections,
+  .getSkills {
+    transform: scale(0.5);
+  }
+
+  .d-flex {
+    flex-direction: row;
   }
 }
 
