@@ -34,19 +34,17 @@ body {
 }
 
 .welcome {
-  font-size: 90px;
+  font-size: 80px;
   color: #ddd;
-  margin-bottom: 8px;
-  /* font-style: italic; */
+  margin-bottom: 0px;
 }
 
 .loadingBar {
   position: relative;
-  margin-top: 20px;
   width: 100vw;
   height: 1px;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); */
   overflow: hidden;
 }
 
