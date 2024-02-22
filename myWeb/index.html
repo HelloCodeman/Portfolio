@@ -43,8 +43,17 @@
     background="transparent" speed="1" style="width: 1000px; height: 1000px;" loop autoplay>
   </dotlottie-player>
   <section class="section opening">
+    <div class="main entrytyping">
+      <div class="strings-word">
+        <!-- <h1>hello!</h1> --><br><br>
+        <div id="typed-strings" class="text-center">
+          <p>WEB DEVELOPER /<br>FRONT-END DEVELOPER</p>
+        </div>
+        <span id="typed"></span>
+      </div>
+    </div>
     <div class="entrytext">
-      <h1 class="scrollDown mb-5"></h1>
+      <h1 class="scrollDown"></h1>
     </div>
   </section>
 
@@ -230,6 +239,7 @@
 
   <!-- bootstrap.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <!-- jQuery.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
   <!-- gsap.js -->
@@ -256,7 +266,6 @@
     // 註冊 Rellax
     var rellax = new Rellax('.rellax', {
       breakpoints: [576, 768, 1201],
-
     });
 
     // header cover: website opening animation
@@ -268,10 +277,18 @@
       .to(".welcome", 0, { display: 'none' })
       .to(".openingCover", 0.5, { height: 0 })
 
+    var typed = new Typed('#typed', {
+      stringsElement: '#typed-strings', //定義標籤
+      backSpeed: 60, //回播速度
+      typeSpeed: 50, //打字速度
+      startDelay: 2000, //3000毫秒(3秒)後觸發
+      loop: false, //循環播放
+    });
+
     const scrollDownText = gsap.fromTo('.scrollDown', {
       duration: 5,
       text: 'Scroll Down <i class="fa-regular fa-hand-point-down handdown"></i>',
-      // ease: "circ.inOut",
+      ease: "circ.inOut",
     }, {
       ease: "power1.out",
       y: 25,
