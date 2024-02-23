@@ -74,7 +74,7 @@ html::-webkit-scrollbar {
   height: 90%;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   /* flex-direction: column; */
 }
 
@@ -111,6 +111,13 @@ a {
   color: black;
   text-decoration: none;
   font-weight: bolder;
+}
+
+nav a:hover {
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: lowercase;
 }
 
 dotlottie-player {
@@ -207,47 +214,64 @@ h2 {
   margin-top: -30px;
   font-weight: bolder;
   font-size: 50px;
-  background-color: #ddd;  
+  background-color: #ddd;
 }
 
 .html {
   transform: translateX(47%);
+  color: #f56c2cff;
 }
 
 .css {
   transform: translateX(31%);
+  color: #0270baff;
 }
 
 .js {
   transform: translateX(54%);
+  color: #f7df25ff;
 }
 
 .php {
   transform: translateX(27%);
+  color: #505c94ff;
 }
 
 .mysql {
   transform: translateX(61%);
+  color: #00759cff;
 }
 
 .ps {
   transform: translateX(69%);
+  color: #001d36ff;
 }
 
 .ai {
   transform: translateX(38%);
+  color: #f29a0cff;
 }
 
 .gsap {
   transform: translateX(15%);
+  color: #04e046ff;
 }
 
 .bs5 {
   transform: translateX(70%);
+  color: #6f2cf5ff;
 }
 
 .card {
   margin: 10px;
+}
+
+.card:hover {
+  border: 1px solid black
+}
+
+.card a:hover {
+  background-color: #ddd;
 }
 
 .footertext {

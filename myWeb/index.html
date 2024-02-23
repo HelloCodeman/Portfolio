@@ -45,15 +45,15 @@
   <section class="section opening">
     <div class="main entrytyping">
       <div class="strings-word">
-        <!-- <h1>hello!</h1> --><br><br>
+        <br><br>
         <div id="typed-strings" class="text-center">
-          <p>WEB DEVELOPER /<br>FRONT-END DEVELOPER</p>
+          <p style="font-weight: lighter;">WEB DEVELOPER <span style="color: #777;">/</span><br>FRONT-END DEVELOPER</p>
         </div>
         <span id="typed"></span>
       </div>
     </div>
     <div class="entrytext">
-      <h1 class="scrollDown"></h1>
+      <p class="scrollDown"></p>
     </div>
   </section>
 
@@ -144,7 +144,7 @@
       </div>
       <div class="rellax" data-rellax-speed="2">
         <div class="php">
-          <i class="fa-brands fa-php" style="font-size: 100px;font-weight: 900;"></i>
+          <i class="fi fi-brands-php" style="font-size: 100px;font-weight: 900;"></i>
         </div>
       </div>
       <div class="rellax" data-rellax-speed="3">
@@ -222,12 +222,7 @@
 
   <!-- footer start -->
   <div class="section">
-    <div class="footertext text-center">
-      <p data-aos="flip-up">
-        Let’s&nbsp;&nbsp;see&nbsp;&nbsp;what&nbsp;&nbsp;will&nbsp;&nbsp;happen&nbsp;&nbsp;in&nbsp;&nbsp;the&nbsp;&nbsp;future.<br>
-      </p>
-      <p data-aos="flip-down">Thanks for watching.</p>
-    </div>
+    <div class="strings-word footertext text-center"></div>
   </div>
   <!-- footer end -->
 
@@ -257,12 +252,14 @@
     // 註冊 GSAP
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(TextPlugin);
+
     // 註冊 AOS
     AOS.init({
       duration: 1000,
       mirror: true,
       easing: 'ease-out-quart',
     });
+
     // 註冊 Rellax
     var rellax = new Rellax('.rellax', {
       breakpoints: [576, 768, 1201],
@@ -277,18 +274,31 @@
       .to(".welcome", 0, { display: 'none' })
       .to(".openingCover", 0.5, { height: 0 })
 
+    // entry typing effect
     var typed = new Typed('#typed', {
-      stringsElement: '#typed-strings', //定義標籤
-      backSpeed: 60, //回播速度
-      typeSpeed: 50, //打字速度
-      startDelay: 2000, //3000毫秒(3秒)後觸發
-      loop: false, //循環播放
+      stringsElement: '#typed-strings', // 定義標籤
+      backSpeed: 60, // 回播速度
+      typeSpeed: 50, // 打字速度
+      startDelay: 2700, // 2.5秒後觸發
+      loop: false, // 循環播放
+    });
+
+    // footer typing effect
+    gsap.to('.footertext', {
+      scrollTrigger: {
+        trigger: '.footertext',
+        start: '60% 90%',
+        end: 'top 60%',
+        toggleActions: 'play none none reset',
+        // markers:true,
+      },
+      duration: 3.5,
+      text: "Let’s see what will happen in the future.",
+      ease: "power1.out",
     });
 
     const scrollDownText = gsap.fromTo('.scrollDown', {
-      duration: 5,
-      text: 'Scroll Down <i class="fa-regular fa-hand-point-down handdown"></i>',
-      ease: "circ.inOut",
+      text: '<i class="fa-solid fa-chevron-down"></i>',
     }, {
       ease: "power1.out",
       y: 25,
@@ -301,7 +311,7 @@
         trigger: '.scrollDown',
         start: 'top 90%',
         end: 'top 60%',
-        toggleActions: 'none play none reset',
+        toggleActions: 'play none none reset',
         /*
         值可為 play,pause,resume,reverse,restart,reset,complete,none
         onEnter => 第一次綠碰綠 scroller-start 碰到 start
@@ -380,7 +390,7 @@
       ease: 'power2.out'
     })
 
-    // 課程
+    // getSkills typing effect
     gsap.to('.getSkills', {
       scrollTrigger: {
         trigger: '.getSkills',
@@ -395,7 +405,7 @@
       repeat: 0
     });
 
-    // 作品集
+    // myCollections typing effect
     gsap.to('.myCollections', {
       scrollTrigger: {
         trigger: '.myCollections',
