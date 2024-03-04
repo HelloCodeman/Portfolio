@@ -16,26 +16,42 @@
   <!-- aos.css -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- style.css -->
-  <link href="./style.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <nav>
-      <li><a href="#">he11oWor1d!</a></li>
-      <li><a href="#timeline">aboutMe</a></li>
-      <li><a href="#course">myCourse</a></li>
-      <li><a href="#collections">myCollections</a></li>
-    </nav>
-  </header>
+  <nav class="navbar navbar-expand-sm navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-lg-0 mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="font-weight: 800;color: black;text-decoration: underline;">he11owor1d!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#timeline">aboutMe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#course">myCourse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#collections">myCollections</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!-- enter animation start-->
-  <section class="openingCover">
+  <!-- <section class="openingCover">
     <section class="welcome" style="letter-spacing: 10px;">Welcome!</section>
     <section class="loadingBar">
       <section class="loadingValue"></section>
     </section>
-  </section>
+  </section> -->
   <!-- enter animation end -->
 
   <!-- content -->
@@ -45,7 +61,6 @@
   <section class="section opening">
     <div class="main entrytyping">
       <div class="strings-word">
-        <br><br>
         <div id="typed-strings" class="text-center">
           <p style="font-weight: lighter;">WEB DEVELOPER <span style="color: #777;">/</span><br>FRONT-END DEVELOPER</p>
         </div>
@@ -238,9 +253,9 @@
   <!-- jQuery.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
   <!-- gsap.js -->
-  <script src="./gsap.js"></script>
-  <script src="./ScrollTrigger.js"></script>
-  <script src="./TextPlugin.js"></script>
+  <script src="./css/gsap.js"></script>
+  <script src="./css/ScrollTrigger.js"></script>
+  <script src="./css/TextPlugin.js"></script>
   <!-- rellax.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js'></script>
   <!-- aos.js -->

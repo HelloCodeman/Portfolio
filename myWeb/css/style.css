@@ -69,55 +69,47 @@ html::-webkit-scrollbar {
   font-size: 1.5vw;
 }
 
+.navbar {
+  background: #ddd;
+  border-radius: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+}
+
+.navbar a {
+  font-size: x-large;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+
+.navbar-nav {
+  text-align: center;
+  gap: 3rem;
+}
+
 .entrytyping {
   width: 100%;
-  height: 90%;
+  height: 92%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-direction: column; */
 }
 
 .entrytext {
   width: 100%;
-  /* height: 100%; */
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .timeline {
   margin-top: 2vh;
   height: 150vh;
-}
-
-nav {
-  width: 100%;
-  position: fixed;
-  background-color: #ddd;
-  color: black;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
-  border-radius: 5rem;
-  list-style: none;
-  z-index: 10;
-  font-size: larger;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-  font-weight: bolder;
-}
-
-nav a:hover {
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  text-transform: lowercase;
 }
 
 dotlottie-player {
@@ -364,6 +356,14 @@ h2 {
     transform: translate(-50%, -50%) scale(0.6);
   }
 
+  .navbar a {
+    font-size: larger;
+  }
+
+  .navbar-nav {
+    gap: 0rem;
+  }
+
   .container:before {
     left: 8px;
     width: 2px;
@@ -394,10 +394,6 @@ h2 {
   .myCollections,
   .getSkills {
     transform: scale(0.5);
-  }
-
-  .d-flex {
-    flex-direction: row;
   }
 }
 
