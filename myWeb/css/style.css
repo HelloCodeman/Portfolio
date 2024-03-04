@@ -13,9 +13,9 @@ body {
   font-family: 'Acme';
   height: 100vh;
   font-weight: 140;
-  /* -ms-overflow-style: none; */
+  -ms-overflow-style: none;
   /* IE and Edge */
-  /* scrollbar-width: none; */
+  scrollbar-width: none;
   /* Firefox */
 }
 
@@ -60,9 +60,9 @@ html::-webkit-scrollbar {
 }
 
 .section {
-  /* width: 100vw; */
+  width: 100vw;
   height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .opening {
@@ -183,6 +183,7 @@ h1 {
 
 .born {
   transform: translateX(100%);
+  overflow: hidden;
 }
 
 .education {
@@ -191,6 +192,7 @@ h1 {
 
 .work {
   transform: translateX(100%);
+  overflow: hidden;
 }
 
 .covid {
@@ -199,6 +201,7 @@ h1 {
 
 .tillnow {
   transform: translateX(100%);
+  overflow: hidden;
 }
 
 h2 {
@@ -393,8 +396,57 @@ h2 {
 
   .myCollections,
   .getSkills {
-    transform: scale(0.5);
+    transform: scale(0.6);
   }
+}
+
+@media screen and (max-width: 550px) {
+
+  .html {
+    transform: scale(0.4) translateX(47%);
+    color: #f56c2cff;
+  }
+
+  .css {
+    transform: scale(0.5) translateX(31%);
+    color: #0270baff;
+  }
+
+  .js {
+    transform: scale(0.4) translateX(54%);
+    color: #f7df25ff;
+  }
+
+  .php {
+    transform: scale(0.4) translateX(27%);
+    color: #505c94ff;
+  }
+
+  .mysql {
+    transform: scale(0.4) translateX(85%);
+    color: #00759cff;
+  }
+
+  .ps {
+    transform: scale(0.4) translateX(105%);
+    color: #001d36ff;
+  }
+
+  .ai {
+    transform: scale(0.4) translateX(-30%);
+    color: #f29a0cff;
+  }
+
+  .gsap {
+    transform: scale(0.4) translateX(-50%);
+    color: #04e046ff;
+  }
+
+  .bs5 {
+    transform: scale(0.4) translateX(115%);
+    color: #6f2cf5ff;
+  }
+
 }
 
 /* 進場文字動畫 */
