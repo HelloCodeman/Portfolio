@@ -60,7 +60,7 @@ html::-webkit-scrollbar {
 }
 
 .section {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   /* overflow: hidden; */
 }
@@ -278,7 +278,7 @@ h2 {
   font-size: 3vw;
 }
 
-/* Timeline RWD */
+/* RWD */
 @media screen and (max-width: 1200px) {
   dotlottie-player {
     transform: translate(-50%, -50%) scale(0.9);
