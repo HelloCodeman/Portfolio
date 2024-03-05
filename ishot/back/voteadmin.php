@@ -109,16 +109,19 @@ if (!isset($_SESSION['user'])) {
                         <!-- 主題 -->
                         <div class="col bg-light p-2">
                             <label for="subject">投票名稱&nbsp;</label>
-                            <input type="text" name="subject" id="">
+                            <input type="text" name="subject">
                         </div>
                         <!-- 選項 -->
                         <div class="col bg-light p-2">
-                            <label for="option" id="opt">投票選項&nbsp;</label> <!-- 給定id以便function定位 -->
-                            <input type="text" name="option[]">
-                            <input type="button" value="更多" onclick="more()">
+                            <div id="opt">投票選項&nbsp;<!-- 給定id以便function定位 -->
+                                <input type="text" name="option[]">
+                                <input type="button" value="更多" onclick="more()">
+                            </div>
+                            <div class="mt-2 text-center">
+                                <input type="submit" value="新增">
+                                <input type="reset" value="清空">
+                            </div>
                         </div>
-                        <input type="submit" value="新增">
-                        <input type="reset" value="清空">
                     </div>
                 </div>
             </form>
@@ -160,8 +163,8 @@ if (!isset($_SESSION['user'])) {
 
     <script>
         function more() {
-            let opt = `<div>
-                        <label for="" id="opt">投票選項&nbsp;</label>
+            let opt = `
+                    <div id="opt">投票選項&nbsp;
                         <input type="text" name="option[]">
                     </div>`
             $("#opt").before(opt)
